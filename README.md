@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="#">
-    <img src="#" alt="Logo" width="80" height="80">
+    <img src="static/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 
@@ -178,9 +178,8 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) - logo
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
