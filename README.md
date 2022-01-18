@@ -73,7 +73,7 @@
 ## About The Project
 <hr>
 
-<!--to be added-->
+<!--to be added (description + wireframes link)-->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,7 +82,14 @@
 ### Built With
 <br>
 
-<!--to be added-->
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://www.javascript.com/)
+* [jQuery](https://jquery.com/)
+* [Python](https://www.python.org/)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [MongoDB](https://www.mongodb.com/)
+* [Bootstrap](https://getbootstrap.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
