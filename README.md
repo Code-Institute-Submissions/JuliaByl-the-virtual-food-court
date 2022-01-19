@@ -104,11 +104,21 @@
 
 As a *non-logged in* user I want to:
 
-* to be added
+* Upon entering the page, clearly locate all my options as to what I can achieve on the website (browse recipes, register to create, edit and delete my own recipes) 
+    - *by having a simplistic and clear design focusing on UX and CRUD*
+* Feel excited to use the recipes found on the website 
+    - *by having a good template for showcasing recipes that is easy to read and understand, with interesting images to draw people in*
+* Have many options to choose between for every mood and meal 
+    - *by having categories for different meals such as breakfast, lunch, dinner and dessert*
 
 As a *logged in* user I want to:
 
-* to be added
+* Upon logging in, find what I can do as a registered user of the page 
+    - *by having the new options displayed clearly on the home page and in the menu*
+* Create, edit and delete my own recipes with ease 
+    - *by having a clear and simple submit form with instructions that makes sense to everyone*
+* Have the option to end my membership 
+    - *by having a button displayed in a corner as to not click on it by accident*
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
