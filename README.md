@@ -31,6 +31,9 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#page-features">Page Features</a></li>
+      </ul>
+      <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -73,7 +76,14 @@
 ## About The Project
 <hr>
 
-<!--to be added (description + wireframes link)-->
+This is a pretty straightforward recipe page aiming at providing an easy and motivating space to create and browse recipes.
+Many of the features are based on what I personally like in a recipe page, since as a food lover, I look for recipes online regularly. I have also gotten input from colleagues and friends on what they think is important when browsing a recipe page.
+Features inspired directly from specific pages will be added under acknowledgements, with a link to the page. 
+To find complete wireframes, click [HERE](#).
+
+![Main page (logged out) wireframe](static/images/wireframes/homescreen_logged_out.png)
+
+### Page Features
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -196,6 +206,7 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 * [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
 * [README template from othneildrew](https://github.com/othneildrew/Best-README-Template)
 * [Markdown Guide for customising README](https://www.markdownguide.org/)
+* [Cheat sheet for emojis](https://github.com/ikatyang/emoji-cheat-sheet#symbols)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
