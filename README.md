@@ -134,8 +134,17 @@ As a *logged in* user I want to:
 
 ### Rough Timeline For Creating Webpage
 <br>
+<!--:white_check_mark: to be used when finishing a task-->
 
-<!--to be added - add checkboxes if possible!-->
+1. Create the database :white_large_square:	
+2. Start on the base html for header, footer and other repeatable elements :white_large_square:	
+3. Create the rest of the front end content (not being too focused on details) :white_large_square:	
+4. Create *register/log in/log out/delete account* features :white_large_square:	
+5. Create *add/ edit/ delete recipe* :white_large_square:	
+6. Create *browse recipes* function :white_large_square:	
+7. Fine-tune :white_large_square:	
+8. Testing :white_large_square:	
+9. Deploy webpage :white_large_square:	
 
 ### Testing
 <br>
@@ -186,6 +195,7 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 
 * [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
 * [README template from othneildrew](https://github.com/othneildrew/Best-README-Template)
+* [Markdown Guide for customising README](https://www.markdownguide.org/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
