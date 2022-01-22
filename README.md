@@ -31,7 +31,18 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#page-features">Page Features</a></li>
+        <li>
+          <a href="#page-features">Page Features</a>
+          <ul>
+            <li><a href="#complete-wireframes">Complete Wireframes</a></li>
+          </ul>
+          <ul>
+            <li><a href="#use-cases-flowchart">Use Cases Flowchart</a></li>
+          </ul>
+          <ul>
+            <li><a href="#database-structure">Database Structure</a></li>
+          </ul>
+        </li>
       </ul>
       <ul>
         <li><a href="#built-with">Built With</a></li>
@@ -49,7 +60,7 @@
             <li><a href="#bugs">Bugs</a></li>
         </ul>
         <ul>
-            <li><a href="#rough-timeline-for-creating-webpage">Rough Timeline For Creating Webpage</a></li>
+            <li><a href="#rough-timeline-for-creating-website">Rough Timeline For Creating Website</a></li>
         </ul>
         <ul>
             <li>
@@ -66,7 +77,15 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+      <ul>
+        <li><a href="#readme">README</a></li>
+      </ul>
+      <ul>
+        <li><a href="#website">Website</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
@@ -78,12 +97,30 @@
 
 This is a pretty straightforward recipe page aiming at providing an easy and motivating space to create and browse recipes.
 Many of the features are based on what I personally like in a recipe page, since as a food lover, I look for recipes online regularly. I have also gotten input from colleagues and friends on what they think is important when browsing a recipe page.
-Features inspired directly from specific pages will be added under acknowledgements, with a link to the page. 
-To find complete wireframes, click [HERE](#).
+Features inspired directly from specific pages will be added under acknowledgements, with a link to the page.
 
-![Main page (logged out) wireframe](static/images/wireframes/homescreen_logged_out.png)
+![Main page (logged out) wireframe](documentation/for_readme_images/homescreen_logged_out.png)
 
 ### Page Features
+<br>
+
+[Page features in a table view](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/page_features_table.pdf)
+
+#### Complete Wireframes
+<br>
+
+* [Big and medium screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/big_screen_wireframes.pdf)
+* [Small screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/small_screen_wireframes.pdf)
+
+#### Use Cases Flowchart
+<br>
+
+![A flowchart overview for logged in and logged out user use cases](documentation/for_readme_images/use_cases.png)
+
+#### Database Structure
+<br>
+
+![A simple overview of the database structure](documentation/for_readme_images/database_overview.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -142,7 +179,7 @@ As a *logged in* user I want to:
 
 [Link to Github issues section](https://github.com/JuliaByl/the-virtual-food-court/issues)
 
-### Rough Timeline For Creating Webpage
+### Rough Timeline For Creating Website
 <br>
 <!--:white_check_mark: to be used when finishing a task-->
 
@@ -154,7 +191,7 @@ As a *logged in* user I want to:
 6. Create *browse recipes* function :white_large_square:	
 7. Fine-tune :white_large_square:	
 8. Testing :white_large_square:	
-9. Deploy webpage :white_large_square:	
+9. Deploy website :white_large_square:	
 
 ### Testing
 <br>
@@ -203,10 +240,19 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 ## Acknowledgments
 <hr>
 
-* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
+### README
+<br>
+
+* [GitHub Docs](https://docs.github.com/en)
 * [README template from othneildrew](https://github.com/othneildrew/Best-README-Template)
 * [Markdown Guide for customising README](https://www.markdownguide.org/)
 * [Cheat sheet for emojis](https://github.com/ikatyang/emoji-cheat-sheet#symbols)
+
+### Website
+<br>
+
+* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
