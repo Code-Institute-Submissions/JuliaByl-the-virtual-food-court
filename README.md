@@ -104,13 +104,13 @@ Features inspired directly from specific pages will be added under acknowledgeme
 ### Page Features
 <br>
 
-[Page features in a table view](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/page_features_table.pdf)
+[Page features in a table view](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_pdf/page_features_table.pdf)
 
 #### Complete Wireframes
 <br>
 
-* [Big and medium screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/big_screen_wireframes.pdf)
-* [Small screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/small_screen_wireframes.pdf)
+* [Big and medium screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_pdf/big_screen_wireframes.pdf)
+* [Small screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_pdf/small_screen_wireframes.pdf)
 
 #### Use Cases Flowchart
 <br>
