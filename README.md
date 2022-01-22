@@ -1,108 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="#">
+    <img src="static/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<h3 align="center">The Virtual Food Court</h3>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+  <p align="center">
+    A page created for easy creation and browsing of recipes. 
+    <br />
+    <a href="#"><strong>Go to Website (to be added)</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/JuliaByl">My Github Page</a>
+    .
+    <a href="https://www.linkedin.com/in/julia-bylund-12a027201/">LinkedIn</a>
+    .
+    <a href="#contact">Contact Details</a>
+  </p>
+</div>
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li>
+          <a href="#page-features">Page Features</a>
+          <ul>
+            <li><a href="#complete-wireframes">Complete Wireframes</a></li>
+          </ul>
+          <ul>
+            <li><a href="#use-cases-flowchart">Use Cases Flowchart</a></li>
+          </ul>
+          <ul>
+            <li><a href="#database-structure">Database Structure</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#usage">Usage</a>
+        <ul>
+            <li><a href="#user-stories">User Stories</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#roadmap">Roadmap</a>
+        <ul>
+            <li><a href="#bugs">Bugs</a></li>
+        </ul>
+        <ul>
+            <li><a href="#rough-timeline-for-creating-website">Rough Timeline For Creating Website</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#testing">Testing</a>
+                <ul>
+                    <li><a href="#testing-user-stories">Testing User Stories</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#testing-the-code">Testing The Code</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+      <ul>
+        <li><a href="#readme">README</a></li>
+      </ul>
+      <ul>
+        <li><a href="#website">Website</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<!-- ABOUT THE PROJECT -->
+## About The Project
+<hr>
 
-A blue button should appear to click: _Make Public_,
+This is a pretty straightforward recipe page aiming at providing an easy and motivating space to create and browse recipes.
+Many of the features are based on what I personally like in a recipe page, since as a food lover, I look for recipes online regularly. I have also gotten input from colleagues and friends on what they think is important when browsing a recipe page.
+Features inspired directly from specific pages will be added under acknowledgements, with a link to the page.
 
-Another blue button should appear to click: _Open Browser_.
+![Main page (logged out) wireframe](documentation/for_readme_images/homescreen_logged_out.png)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Page Features
+<br>
 
-To log into the Heroku toolbelt CLI:
+[Page features in a table view](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/page_features_table.pdf)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Complete Wireframes
+<br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* [Big and medium screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/big_screen_wireframes.pdf)
+* [Small screen wireframes (pdf)](https://github.com/JuliaByl/the-virtual-food-court/blob/master/documentation/for_readme_pdf/small_screen_wireframes.pdf)
 
-------
+#### Use Cases Flowchart
+<br>
 
-## Release History
+![A flowchart overview for logged in and logged out user use cases](documentation/for_readme_images/use_cases.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Database Structure
+<br>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![A simple overview of the database structure](documentation/for_readme_images/database_overview.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Built With
+<br>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://www.javascript.com/)
+* [jQuery](https://jquery.com/)
+* [Python](https://www.python.org/)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [MongoDB](https://www.mongodb.com/)
+* [Bootstrap](https://getbootstrap.com/)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<!-- USAGE -->
+## Usage
+<hr>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### User stories
+<br>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+As a *non-logged in* user I want to:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* Upon entering the page, clearly locate all my options as to what I can achieve on the website (browse recipes, register to create, edit and delete my own recipes) 
+    - *by having a simplistic and clear design focusing on UX and CRUD*
+* Feel excited to use the recipes found on the website 
+    - *by having a good template for showcasing recipes that is easy to read and understand, with interesting images to draw people in*
+* Have many options to choose between for every mood and meal 
+    - *by having categories for different meals such as breakfast, lunch, dinner and dessert*
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+As a *logged in* user I want to:
 
-------
+* Upon logging in, find what I can do as a registered user of the page 
+    - *by having the new options displayed clearly on the home page and in the menu*
+* Create, edit and delete my own recipes with ease 
+    - *by having a clear and simple submit form with instructions that makes sense to everyone*
+* Have the option to end my membership 
+    - *by having a button displayed in a corner as to not click on it by accident*
 
-## FAQ about the uptime script
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+<!-- ROADMAP -->
+## Roadmap
+<hr>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Bugs
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+[Link to Github issues section](https://github.com/JuliaByl/the-virtual-food-court/issues)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Rough Timeline For Creating Website
+<br>
+<!--:white_check_mark: to be used when finishing a task-->
 
-**So….?**
+1. Create the database :white_large_square:	
+2. Start on the base html for header, footer and other repeatable elements :white_large_square:	
+3. Create the rest of the front end content (not being too focused on details) :white_large_square:	
+4. Create *register/log in/log out/delete account* features :white_large_square:	
+5. Create *add/ edit/ delete recipe* :white_large_square:	
+6. Create *browse recipes* function :white_large_square:	
+7. Fine-tune :white_large_square:	
+8. Testing :white_large_square:	
+9. Deploy website :white_large_square:	
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Testing
+<br>
 
-**Can I opt out?**
+* to be added later in the project
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+#### Testing User Stories
+<br>
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+* to be added later in the project
 
-**Anything more?**
+#### Testing The Code
+<br>
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+* to be added later in the project
 
----
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Happy coding!
+
+
+<!-- LICENSE -->
+## License
+<hr>
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+<hr>
+
+Send me an [email](mailto:julia.bylund.97@gmail.com)
+<br>
+Or contact me on [LinkedIn](https://www.linkedin.com/in/julia-bylund-12a027201/)
+<br>
+Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+<hr>
+
+### README
+<br>
+
+* [GitHub Docs](https://docs.github.com/en)
+* [README template from othneildrew](https://github.com/othneildrew/Best-README-Template)
+* [Markdown Guide for customising README](https://www.markdownguide.org/)
+* [Cheat sheet for emojis](https://github.com/ikatyang/emoji-cheat-sheet#symbols)
+
+### Website
+<br>
+
+* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
