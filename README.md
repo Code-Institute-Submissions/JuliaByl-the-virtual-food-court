@@ -251,7 +251,8 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 ### Website
 <br>
 
-* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
+* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) #
+* [cdnjs](https://cdnjs.com/)
 
 
 
