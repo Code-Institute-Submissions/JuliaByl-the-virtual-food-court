@@ -1,0 +1,14 @@
+/* colors */
+header {
+    background-color: #FCD0A1;
+}
+
+/* Header and navbars */
+
+nav li {
+    list-style-type: none;
+}
+
+h1 {
+    padding-top: 12px;
+}
