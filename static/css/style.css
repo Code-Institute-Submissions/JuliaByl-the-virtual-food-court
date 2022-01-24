@@ -3,12 +3,12 @@ header {
     background-color: #FCD0A1;
 }
 
-/* Header and navbars */
+/* Headers and navbars */
 
 nav li {
     list-style-type: none;
 }
 
-h1 {
+h1, h4 {
     padding-top: 12px;
 }
