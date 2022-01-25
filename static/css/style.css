@@ -9,8 +9,8 @@ nav li {
     list-style-type: none;
 }
 
-h4, header, footer {
-    padding-top: 12px;
+h4, header, footer, .page-description {
+    padding-top: 15px;
 }
 
 a {
