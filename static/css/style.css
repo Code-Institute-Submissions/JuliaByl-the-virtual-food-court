@@ -1,5 +1,5 @@
 /* colors */
-header {
+header, footer {
     background-color: #FCD0A1;
 }
 
@@ -9,6 +9,6 @@ nav li {
     list-style-type: none;
 }
 
-h1, h4 {
+h4, header, footer {
     padding-top: 12px;
 }
