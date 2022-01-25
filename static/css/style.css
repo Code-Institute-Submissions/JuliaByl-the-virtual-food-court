@@ -12,3 +12,7 @@ nav li {
 h4, header, footer {
     padding-top: 12px;
 }
+
+a {
+    text-decoration: none;
+}
