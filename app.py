@@ -47,3 +47,10 @@ def login():
 @app.route("/create-recipe")
 def create_recipe():
     return render_template("create-recipe.html")   
+
+
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
+            
