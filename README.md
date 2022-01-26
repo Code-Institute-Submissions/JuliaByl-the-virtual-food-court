@@ -183,7 +183,7 @@ As a *logged in* user I want to:
 <br>
 <!--:white_check_mark: to be used when finishing a task-->
 
-1. Create the database :white_large_square:	
+1. Create the database :white_check_mark:
 2. Start on the base html for header, footer and other repeatable elements :white_large_square:	
 3. Create the rest of the front end content (not being too focused on details) :white_large_square:	
 4. Create *register/log in/log out/delete account* features :white_large_square:	

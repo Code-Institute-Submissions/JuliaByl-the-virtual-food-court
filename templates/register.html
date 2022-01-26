@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
+{% block subheader%} 
+    A place to register.
+{% endblock %}
+
+{% block description%} 
+    Already a member?
+    <br>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+{% endblock %}
+
 {% block content%}
-
-
 
 {% endblock %}

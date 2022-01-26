@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 
+{% block subheader %} 
+    A place for hungry people.
+{% endblock %}
+
+{% block description%} 
+    Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast, 
+    lazy Monday lunches, fancy dinners and everything in between.
+    Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more people.
+    Happy cooking!!
+    <br>
+    <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+    <a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+{% endblock %}
+
 {% block content%}
-
-
 
 {% endblock %}

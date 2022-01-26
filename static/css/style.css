@@ -16,3 +16,7 @@ h4, header, footer, .page-description {
 a {
     text-decoration: none;
 }
+
+.btn-outline-success {
+    margin-top: 15px;
+}
