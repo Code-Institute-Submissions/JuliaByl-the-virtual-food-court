@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block description%} 
+
     Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast, 
     lazy Monday lunches, fancy dinners and everything in between.
     Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more people.
@@ -13,8 +14,27 @@
     <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
     <a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
     <a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+    
 {% endblock %}
 
 {% block content%}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col justify-content-left">
+                <h5>Most recently created recipes</h5>
+            </div>
+        </div>
+        <div class="row row-cols-md-3 row-cols-1 justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body vh-50">
+                        <h4 class="card-title">Burger</h4>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. lorem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

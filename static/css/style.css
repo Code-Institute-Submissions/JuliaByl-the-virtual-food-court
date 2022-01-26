@@ -3,7 +3,7 @@ header, footer {
     background-color: #FCD0A1;
 }
 
-/* Headers and navbars */
+/* Headers, footer and main navbars */
 
 nav li {
     list-style-type: none;
@@ -17,6 +17,19 @@ a {
     text-decoration: none;
 }
 
-.btn-outline-success {
+.btn-outline-success, footer {
     margin-top: 15px;
+}
+
+/* Recipe preview cards*/
+
+.card {
+    margin-bottom: 15px;
+    min-height: 40vh;
+}
+
+/* Content block */
+
+.content {
+    min-height: calc(100vh-200px);
 }
