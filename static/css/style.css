@@ -3,6 +3,10 @@ header, footer {
     background-color: #FCD0A1;
 }
 
+.card-details {
+    color: #437E25;
+}
+
 /* Headers, footer and main navbars */
 
 nav li {
@@ -26,6 +30,10 @@ a {
 .card {
     margin-bottom: 15px;
     min-height: 40vh;
+}
+
+.card {
+    height: 50vh;
 }
 
 /* Content block */
