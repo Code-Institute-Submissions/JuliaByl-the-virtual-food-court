@@ -35,7 +35,7 @@ a {
 
 /* Recipe preview cards*/
 
-.card {
+.cards-row .card {
     margin-bottom: 15px;
     height: 40vh;
 }
@@ -53,5 +53,5 @@ a {
 /* Content block */
 
 .content {
-    min-height: calc(100vh-200px);
+    min-height: calc(100vh - 250px);
 }
