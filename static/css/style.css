@@ -50,8 +50,27 @@ a {
     margin: 15px;
 }
 
+/* register and login page */
+
+.form-container form {
+    padding: 10%;
+}
+
+.form-container .col {
+    margin: 3%;
+}
+
+
 /* Content block */
 
 .content {
     min-height: calc(100vh - 250px);
+}
+
+/* Small screen media queries */
+
+@media only screen and (max-width: 768px) {
+    .form-container {
+        min-width: 100%;
+    }
 }
