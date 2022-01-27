@@ -29,11 +29,11 @@ a {
 
 .card {
     margin-bottom: 15px;
-    min-height: 40vh;
+    height: 40vh;
 }
 
-.card {
-    height: 50vh;
+.cards-row {
+    margin-top: 15px;
 }
 
 /* Content block */
