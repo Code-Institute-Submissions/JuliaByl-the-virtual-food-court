@@ -7,6 +7,14 @@ header, footer {
     color: #437E25;
 }
 
+.main-container {
+    background-color: #A1CDFC;
+}
+
+.main-container .card {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 /* Headers, footer and main navbars */
 
 nav li {
@@ -34,6 +42,12 @@ a {
 
 .cards-row {
     margin-top: 15px;
+}
+
+/* recipe view page */
+
+.main-container .card {
+    margin: 15px;
 }
 
 /* Content block */
