@@ -36,20 +36,17 @@
                 <div class="col">
                     <div class="card overflow-hidden">
                         <div class="card-header border-3">
-                            <h4>Burger</h4>
+                            <h4>{{ recipe.title }}</h4>
                             <h6 class="card-details">
                                 <i class="far fa-clock"> {{ recipe.time_required }}</i>
                                 <br>
-                                <i class="fas fa-utensils"> 3</i>
+                                <i class="fas fa-utensils"> {{ recipe.portions_amount }}</i>
                             </h6>
                         </div>
                         <div class="card-body">
                             <!--temporary nav link to recipe view-->
                             <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. lorem
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor quaerat sapiente est, 
-                                aperiam necessitatibus laboriosam numquam cupiditate, adipisci fuga voluptatem, 
-                                doloremque sed distinctio laborum! Nihil delectus quae quas fuga?
+                            <p class="card-text">{{ recipe.how_to }}
                         </div>
                     </div>
                 </div>

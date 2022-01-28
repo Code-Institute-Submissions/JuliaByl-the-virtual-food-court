@@ -1,50 +1,52 @@
 {% extends "base.html" %}
 
-{% block subheader %} 
-    A place for hungry people.
+{% block subheader %}
+A place for hungry people.
 {% endblock %}
 
-{% block description%} 
+{% block description%}
 
-    Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast, 
-    lazy Monday lunches, fancy dinners and everything in between.
-    Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more people.
-    Happy cooking!!
-    <br>
-    <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
-    <a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
-    <a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
-    
+Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast,
+lazy Monday lunches, fancy dinners and everything in between.
+Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more
+people.
+Happy cooking!!
+<br>
+<a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+<a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
+<a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+
 {% endblock %}
 
 {% block content%}
-    
+
     <div class="container">
         <div class="row">
             <div class="col justify-content-left">
                 <h5>Most recently created recipes</h5>
             </div>
         </div>
-        <!--recipe overview cards. Max. 3 cards shown on homepage-->
         <div class="row row-cols-md-3 row-cols-1 text-center cards-row">
+            <!--loops through the top 3 documents in the recipes db collection and gives the different card sections the info needed-->
+            {% for i in range(3) %}
             <div class="col">
                 <div class="card overflow-hidden">
                     <div class="card-header border-3">
-                        <h4>Burger</h4>
+                        <h4>{{ recipes[i].title }}</h4>
                         <h6 class="card-details">
-                            <i class="far fa-clock"> 2h</i>
+                            <i class="far fa-clock"> {{ recipes[i].time_required }}</i>
                             <br>
-                            <i class="fas fa-utensils"> 3</i>
+                            <i class="fas fa-utensils"> {{ recipes[i].portions_amount }}</i>
                         </h6>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. lorem
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor quaerat sapiente est, 
-                            aperiam necessitatibus laboriosam numquam cupiditate, adipisci fuga voluptatem, 
-                            doloremque sed distinctio laborum! Nihil delectus quae quas fuga?
+                        <!--temporary nav link to recipe view-->
+                        <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
+                        <p class="card-text">{{ recipes[i].how_to }}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 
