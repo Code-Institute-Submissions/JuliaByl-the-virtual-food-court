@@ -13,6 +13,14 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
+
+
+mongo = PyMongo(app)
+
+
 # home page
 @app.route("/")
 def home():
@@ -22,7 +30,8 @@ def home():
 # browse recipes
 @app.route("/browse-recipes")
 def browse_recipes():
-    return render_template("browse-recipes.html")    
+    recipes = mongo.db.recipes.find()
+    return render_template("browse-recipes.html", recipes=recipes)     
 
 
 # view recipe

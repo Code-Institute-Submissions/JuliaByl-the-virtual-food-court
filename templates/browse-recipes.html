@@ -6,52 +6,55 @@
 
 {% block content%}
 
-<div class="container">
-    <!--nav header for browsing recipes  TODO: add values to select options-->
-    <nav class="row row-cols-md-3 row-cols-1 text-center p-2 border border-2">
-        <div class="col align-self-end p-2">
-            <h6>What do you want to eat?</h6>
-            <select class="form-select w-50 mx-auto" id="category-select" aria-label="Dropdown menu for categories options">
-                <option value="#">Breakfast</option>
-                <option value="#">Lunch</option>
-                <option value="#">Dinner</option>
-                <option value="#">Dessert</option>
-            </select>
-        </div>
-        <div class="col align-self-end p-2">
-            <h6>Search by a specific ingredient</h6>
-            <div class="input-group w-50 mx-auto">
-                <input type="text" class="form-control">
-                <label for="#"></label>
+    <div class="container">
+        <!--nav header for browsing recipes  TODO: add values to select options-->
+        <nav class="row row-cols-md-3 row-cols-1 text-center p-2 border border-2">
+            <div class="col align-self-end p-2">
+                <h6>What do you want to eat?</h6>
+                <select class="form-select w-50 mx-auto" id="category-select" aria-label="Dropdown menu for categories options">
+                    <option value="#">Breakfast</option>
+                    <option value="#">Lunch</option>
+                    <option value="#">Dinner</option>
+                    <option value="#">Dessert</option>
+                </select>
             </div>
-        </div>
-        <div class="col align-self-end p-2">
-            <a href="#" class="btn btn-success w-50 mx-auto" type="button">Search</a>
-        </div>
-    </nav>
-    <!--recipe overview cards.-->
-    <div class="row row-cols-md-3 row-cols-1 text-center cards-row">
-        <div class="col">
-            <div class="card overflow-hidden">
-                <div class="card-header border-3">
-                    <h4>Burger</h4>
-                    <h6 class="card-details">
-                        <i class="far fa-clock"> 2h</i>
-                        <br>
-                        <i class="fas fa-utensils"> 3</i>
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <!--temporary nav link to recipe view-->
-                    <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
-                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. lorem
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor quaerat sapiente est, 
-                        aperiam necessitatibus laboriosam numquam cupiditate, adipisci fuga voluptatem, 
-                        doloremque sed distinctio laborum! Nihil delectus quae quas fuga?
+            <div class="col align-self-end p-2">
+                <h6>Search by a specific ingredient</h6>
+                <div class="input-group w-50 mx-auto">
+                    <input type="text" class="form-control">
+                    <label for="#"></label>
                 </div>
             </div>
+            <div class="col align-self-end p-2">
+                <a href="#" class="btn btn-success w-50 mx-auto" type="button">Search</a>
+            </div>
+        </nav>
+        <!--recipe overview cards.-->
+        <div class="row row-cols-md-3 row-cols-1 text-center cards-row">
+            <!--loops through each document in the recipes db collection and gives the different card sections the info needed-->
+            {% for recipe in recipes %}
+                <div class="col">
+                    <div class="card overflow-hidden">
+                        <div class="card-header border-3">
+                            <h4>Burger</h4>
+                            <h6 class="card-details">
+                                <i class="far fa-clock"> {{ recipe.time_required }}</i>
+                                <br>
+                                <i class="fas fa-utensils"> 3</i>
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <!--temporary nav link to recipe view-->
+                            <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. lorem
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor quaerat sapiente est, 
+                                aperiam necessitatibus laboriosam numquam cupiditate, adipisci fuga voluptatem, 
+                                doloremque sed distinctio laborum! Nihil delectus quae quas fuga?
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-</div>
 
 {% endblock %}
