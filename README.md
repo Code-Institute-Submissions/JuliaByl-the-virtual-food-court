@@ -184,14 +184,14 @@ As a *logged in* user I want to:
 <!--:white_check_mark: to be used when finishing a task-->
 
 1. Create the database :white_check_mark:
-2. Start on the base html for header, footer and other repeatable elements :white_large_square:	
-3. Create the rest of the front end content (not being too focused on details) :white_large_square:	
-4. Create *register/log in/log out/delete account* features :white_large_square:	
-5. Create *add/ edit/ delete recipe* :white_large_square:	
-6. Create *browse recipes* function :white_large_square:	
+2. Start on the base html for header, footer and other repeatable elements :white_check_mark:
+3. Create the rest of the front end content (not being too focused on details) :white_check_mark:
+4. Create *browse recipes/ view recipe* function :white_large_square:
+5. Create *register/log in/log out/delete account* features :white_large_square:	
+6. Create *add/ edit/ delete recipe* :white_large_square:		
 7. Fine-tune :white_large_square:	
-8. Testing :white_large_square:	
-9. Deploy website :white_large_square:	
+9. Testing :white_large_square:	
+10. Deploy website :white_large_square:	
 
 ### Testing
 <br>
