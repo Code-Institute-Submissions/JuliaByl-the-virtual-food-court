@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block subheader%} 
+    A place to log in.
+{% endblock %}
+
+{% block description%} 
+    Don't have an account?
+    <br>
+    <a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
+{% endblock %}
+
+{% block content%}
+
+<div class="container">
+    <div class="row main-container form-container w-50 mx-auto">
+        <form action="POST">
+            <div class="col">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" type="text">
+            </div>
+            <div class="col">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" type="text">
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-info" value="Log In"></input>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

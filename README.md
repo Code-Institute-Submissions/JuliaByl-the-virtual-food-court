@@ -120,7 +120,10 @@ Features inspired directly from specific pages will be added under acknowledgeme
 #### Database Structure
 <br>
 
-![A simple overview of the database structure](documentation/for_readme_images/database_overview.png)
+This has been updated from the original database structure, since I realised there were some easier ways to get things from the database. Instead of having the food types separately as keys with the values of "on/off" (ex. "breakfast": on), I am adding a single key (food_category) which will have the value of each food type item that gets picked when creating the recipe. To see my old structure, [here is the link](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_images/database_overview_v1.png). I also added a "title" key for the simple reason that I missed adding it originally, but it was already planned into the page structure.
+<br>
+
+![A simple overview of the database structure version 2](documentation/for_readme_images/database_overview_v2.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -183,15 +186,15 @@ As a *logged in* user I want to:
 <br>
 <!--:white_check_mark: to be used when finishing a task-->
 
-1. Create the database :white_large_square:	
-2. Start on the base html for header, footer and other repeatable elements :white_large_square:	
-3. Create the rest of the front end content (not being too focused on details) :white_large_square:	
-4. Create *register/log in/log out/delete account* features :white_large_square:	
-5. Create *add/ edit/ delete recipe* :white_large_square:	
-6. Create *browse recipes* function :white_large_square:	
+1. Create the database :white_check_mark:
+2. Start on the base html for header, footer and other repeatable elements :white_check_mark:
+3. Create the rest of the front end content (not being too focused on details) :white_check_mark:
+4. Create *browse recipes/ view recipe* function :white_large_square:
+5. Create *register/log in/log out/delete account* features :white_large_square:	
+6. Create *add/ edit/ delete recipe* :white_large_square:		
 7. Fine-tune :white_large_square:	
-8. Testing :white_large_square:	
-9. Deploy website :white_large_square:	
+9. Testing :white_large_square:	
+10. Deploy website :white_large_square:	
 
 ### Testing
 <br>
@@ -251,7 +254,8 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 ### Website
 <br>
 
-* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) 
+* [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) #
+* [cdnjs](https://cdnjs.com/)
 
 
 

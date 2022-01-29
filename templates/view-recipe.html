@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block subheader%}
+    {{ recipe.title }}
+{% endblock %}
+
+{% block content%}
+
+<div class="container">
+    <div class="row row-cols-md-3 row-cols-1 text-center p-2">
+        <!--Time, portions and categories. TODO: add function go generate the information from database-->
+        <div class="col">
+            <h6>Food Types: </h6>
+            <p>
+                to be fixed
+                <!--TODO: change database to easier attach food types here. Instead of on/off on 
+                    breakfast, lunch, dinner and breakfast, create a food_type key that has 
+                    the value of the food types chosen when creating the recipe-->
+            </p>
+        </div>
+        <div class="col">
+            <h6>Portions: </h6>
+            <p>{{ recipe.portions_amount }}</p>
+        </div>
+        <div class="col">
+            <h6>Time Required: </h6>
+            <p>{{ recipe.time_required }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container main-container text-center">
+    <div class="row row row-cols-md-2 row-cols-1">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Ingredients</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <!--function that goes through the "ingredients_amount" 
+                            array and generates a new list item per array item-->
+                        {% for ingredient in recipe.ingredients_amount %}
+                        <li>
+                            <!--TODO: align checkboxes to the left-->
+                            <input class="form-check-input" type="checkbox"
+                                aria-label="Checkbox for ingredients being ticked off when used">
+                            {{ ingredient }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h6>How To</h6>
+                </div>
+                <div class="card-body">
+                    <p>{{ recipe.how_to }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
