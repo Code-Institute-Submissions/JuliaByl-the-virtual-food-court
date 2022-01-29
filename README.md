@@ -120,7 +120,10 @@ Features inspired directly from specific pages will be added under acknowledgeme
 #### Database Structure
 <br>
 
-![A simple overview of the database structure](documentation/for_readme_images/database_overview.png)
+This has been updated from the original database structure, since I realised there were some easier ways to get things from the database. Instead of having the food types separately as keys with the values of "on/off" (ex. "breakfast": on), I am adding a single key (food_category) which will have the value of each food type item that gets picked when creating the recipe. To see my old structure, [here is the link](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_images/database_overview_v1.png). I also added a "title" key for the simple reason that I missed adding it originally, but it was already planned into the page structure.
+<br>
+
+![A simple overview of the database structure version 2](documentation/for_readme_images/database_overview_v2.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
