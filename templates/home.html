@@ -31,17 +31,17 @@ Happy cooking!!
             {% for i in range(3) %}
             <div class="col">
                 <div class="card overflow-hidden">
-                    <div class="card-header border-3">
-                        <h4>{{ recipes[i].title }}</h4>
-                        <h6 class="card-details">
-                            <i class="far fa-clock"> {{ recipes[i].time_required }}</i>
-                            <br>
-                            <i class="fas fa-utensils"> {{ recipes[i].portions_amount }}</i>
-                        </h6>
-                    </div>
+                    <a href="{{ url_for('view_recipe', recipe_id=recipes[i]._id) }}">
+                        <div class="card-header border-3">
+                            <h4>{{ recipes[i].title }}</h4>
+                            <h6 class="card-details">
+                                <i class="far fa-clock"> {{ recipes[i].time_required }}</i>
+                                <br>
+                                <i class="fas fa-utensils"> {{ recipes[i].portions_amount }}</i>
+                            </h6>
+                        </div>
+                    </a>
                     <div class="card-body">
-                        <!--temporary nav link to recipe view-->
-                        <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
                         <p class="card-text">{{ recipes[i].how_to }}</p>
                     </div>
                 </div>

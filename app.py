@@ -36,9 +36,10 @@ def browse_recipes():
 
 
 # view recipe
-@app.route("/view-recipe")
-def view_recipe():
-    return render_template("view-recipe.html")
+@app.route("/view-recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view-recipe.html", recipe=recipe)
 
 
 # register

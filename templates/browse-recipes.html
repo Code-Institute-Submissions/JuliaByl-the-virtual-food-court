@@ -35,17 +35,18 @@
             {% for recipe in recipes %}
                 <div class="col">
                     <div class="card overflow-hidden">
-                        <div class="card-header border-3">
-                            <h4>{{ recipe.title }}</h4>
-                            <h6 class="card-details">
-                                <i class="far fa-clock"> {{ recipe.time_required }}</i>
-                                <br>
-                                <i class="fas fa-utensils"> {{ recipe.portions_amount }}</i>
-                            </h6>
-                        </div>
+                        <!--card header is clickable and leads to view-recipe page-->
+                        <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                            <div class="card-header border-3">
+                                <h4>{{ recipe.title }}</h4>
+                                <h6 class="card-details">
+                                    <i class="far fa-clock"> {{ recipe.time_required }}</i>
+                                    <br>
+                                    <i class="fas fa-utensils"> {{ recipe.portions_amount }}</i>
+                                </h6>
+                            </div>
+                        </a>
                         <div class="card-body">
-                            <!--temporary nav link to recipe view-->
-                            <a href="{{ url_for('view_recipe') }}">Go to recipe (temporary link)</a>
                             <p class="card-text">{{ recipe.how_to }}
                         </div>
                     </div>
