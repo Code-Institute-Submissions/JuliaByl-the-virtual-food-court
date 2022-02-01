@@ -35,16 +35,10 @@
           <a href="#page-features">Page Features</a>
           <ul>
             <li><a href="#complete-wireframes">Complete Wireframes</a></li>
-          </ul>
-          <ul>
             <li><a href="#use-cases-flowchart">Use Cases Flowchart</a></li>
-          </ul>
-          <ul>
             <li><a href="#database-structure">Database Structure</a></li>
           </ul>
         </li>
-      </ul>
-      <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -58,31 +52,23 @@
         <a href="#roadmap">Roadmap</a>
         <ul>
             <li><a href="#bugs">Bugs</a></li>
-        </ul>
-        <ul>
             <li><a href="#rough-timeline-for-creating-website">Rough Timeline For Creating Website</a></li>
-        </ul>
-        <ul>
+            <li><a href="#site-changes">Site Changes</a></li>
             <li>
                 <a href="#testing">Testing</a>
                 <ul>
                     <li><a href="#testing-user-stories">Testing User Stories</a></li>
-                </ul>
-                <ul>
                     <li><a href="#testing-the-code">Testing The Code</a></li>
                 </ul>
             </li>
         </ul>
     </li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li>
       <a href="#acknowledgments">Acknowledgments</a>
       <ul>
         <li><a href="#readme">README</a></li>
-      </ul>
-      <ul>
         <li><a href="#website">Website</a></li>
       </ul>
     </li>
@@ -195,6 +181,12 @@ As a *logged in* user I want to:
 7. Fine-tune :white_large_square:	
 9. Testing :white_large_square:	
 10. Deploy website :white_large_square:	
+
+### Site Changes
+<br>
+
+* After having a talk with my mentor, I decided to change the layout of the how-to section in view-recipe.html slightly. Instead of having one big block of text with no breathing room, I now have list items separated with some room in between each other.
+In MongoDB the how-to attribute changed from a string to an array. This will also change the layout of the create-recipe page, since I will have to cater for the list items. I will make the input for the how-to section the same as for the ingredients input.
 
 ### Testing
 <br>

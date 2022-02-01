@@ -35,6 +35,36 @@ def browse_recipes():
     return render_template("browse-recipes.html", recipes=recipes)     
 
 
+@app.route("/search_recipe", methods=["GET", "POST"])
+# search recipes
+def search_recipe():
+    category_select = request.form.get("category_select")
+    ingredient_search = request.form.get("ingredient_search") 
+    
+    # loop creating different search options depending on what has been populated
+    if category_select == "all-types":
+        if ingredient_search:
+        # if all food types are selected and the text input is populated, search for the specific word
+            recipe_search = list(mongo.db.recipes.find({"$text": {"$search": ingredient_search}}))
+        else:
+        #search for everything if nothing is specified in the search
+            recipe_search = mongo.db.recipes.find()           
+    else:
+        if ingredient_search:
+        # if both dropdown and input area are populated, search for both 
+            recipe_search = list(mongo.db.recipes.find(
+                {"$and": [
+                    {"food_category": category_select},
+                    {"$text": {"$search": ingredient_search}}
+                ]}
+            ))
+        else:
+        # if only a food category is selected, search by that
+            recipe_search = list(mongo.db.recipes.find({"food_category": category_select})) 
+
+    return render_template("browse-recipes.html", recipes=recipe_search) 
+
+
 # view recipe
 @app.route("/view-recipe/<recipe_id>")
 def view_recipe(recipe_id):
