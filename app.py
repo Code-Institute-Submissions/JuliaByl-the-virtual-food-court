@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, render_template, redirect, 
-    request, session, url_for
+    request, session, url_for, flash
 )
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -35,8 +35,8 @@ def browse_recipes():
     return render_template("browse-recipes.html", recipes=recipes)     
 
 
-@app.route("/search_recipe", methods=["GET", "POST"])
 # search recipes
+@app.route("/search_recipe", methods=["GET", "POST"])
 def search_recipe():
     category_select = request.form.get("category_select")
     ingredient_search = request.form.get("ingredient_search") 
@@ -73,8 +73,25 @@ def view_recipe(recipe_id):
 
 
 # register
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Name already taken!")
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }   
+        mongo.db.users.insert_one(register)     
+
+        session["user"] = request.form.get("username").lower() 
+        flash("Successfully Registered!")
+
     return render_template("register.html")
 
 

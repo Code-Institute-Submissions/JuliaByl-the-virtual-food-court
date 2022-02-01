@@ -66,10 +66,22 @@
                         {% endblock %} 
 
                     </p>
+                    <section>
+                        <!-- flash messages -->
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="flashes">
+                                        <h5>{{ message }}</h4>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </section>
                 </div>
             </div>
         </div>
-
+        <!--main content-->
         {% block content %}
         {% endblock %}
     </div>
