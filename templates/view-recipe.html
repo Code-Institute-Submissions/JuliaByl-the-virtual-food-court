@@ -51,9 +51,13 @@
                 <div class="card-header">
                     <h6>How To</h6>
                 </div>
-                <!--TODO: fix so the how-to text can be sectioned off for better readability-->
                 <div class="card-body text-start">
-                    <p>{{ recipe.how_to }}</p>
+                    <ol class="list-unstyled">
+                        {% for section in recipe.how_to %}
+                            <li>{{ section }}</li>
+                            <br>
+                        {% endfor %}
+                    </ol>
                 </div>
             </div>
         </div>
