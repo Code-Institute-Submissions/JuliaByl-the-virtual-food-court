@@ -59,10 +59,11 @@
                 {% endfor %}
             </div>
         {% else %} 
-        <div class="col-12 text-center">
-            <h5>Nothing could be found!</h5>
-            <img src="static/images/no-results.jpg" alt="no results found">
-        </div>
+            <!--if no search results are found-->
+            <div class="col text-danger text-center m-2 p-1">
+                <h5>Nothing could be found!</h5>
+                <i class="far fa-frown fa-2x"></i>
+            </div>
         {% endif %} 
     </div>
 
