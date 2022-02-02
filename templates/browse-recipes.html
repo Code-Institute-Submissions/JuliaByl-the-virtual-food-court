@@ -4,6 +4,14 @@
     A place to browse recipes.
 {% endblock %}
 
+{% block description %}
+    {% if session.user %}
+        Can't find anything? Add your own recipe!
+        <br>
+        <a href="{{ url_for('create_recipe') }}" class="btn btn-outline-success">Create Recipe</a>
+    {% endif %}
+{% endblock %}
+
 {% block content%}
 
     <div class="container">
@@ -52,7 +60,7 @@
                                 </div>
                             </a>
                             <div class="card-body">
-                                <p class="card-text">{{ recipe.how_to }}
+                                <p class="card-text">{{ recipe.how_to|join() }}
                             </div>
                         </div>
                     </div>
