@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 
 {% block subheader %}
-A place for hungry people.
+    <!--Logged in subheader-->
+    {% if session.user %}
+        Welcome, {{ session["user"] }}!
+    <!--Logged out subheader-->
+    {% else %}
+        A place for hungry people.
+    {% endif %}
 {% endblock %}
 
 {% block description%}
-
-Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast,
-lazy Monday lunches, fancy dinners and everything in between.
-Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more
-people.
-Happy cooking!!
-<br>
-<a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
-<a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
-<a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+    <!--Logged in description-->
+    {% if session.user %}
+        Would you like to create a new recipe, or browse what is already here?
+        <br>
+        <a href="{{ url_for('create_recipe') }}" class="btn btn-outline-success">Create Recipe</a>
+        <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+    <!--Logged out description-->
+    {% else %}
+        Welcome. On this recipe collection page, you will find everything you need for a luxurious breakfast,
+        lazy Monday lunches, fancy dinners and everything in between.
+        Users are encouraged to register as a member of the page, to create their own recipes and share the happiness with more
+        people.
+        Happy cooking!!
+        <br>
+        <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+        <a href="{{ url_for('register') }}" class="btn btn-outline-success">Register</a>
+        <a href="{{ url_for('login') }}" class="btn btn-outline-success">Log In</a>
+    {% endif %}
 
 {% endblock %}
 
@@ -43,7 +57,7 @@ Happy cooking!!
                             </div>
                         </a>
                         <div class="card-body">
-                            <p class="card-text">{{ recipes[i].how_to }}</p>
+                            <p class="card-text">{{ recipes[i].how_to|join() }}</p>
                         </div>
                     </div>
                 </div>

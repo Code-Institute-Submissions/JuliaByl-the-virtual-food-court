@@ -14,17 +14,22 @@ Already a member?
 
 <div class="container">
     <div class="row main-container form-container w-50 mx-auto">
-        <form action="POST">
+        <form method="POST" action="{{ url_for('register') }}">
+            <!--username input-->
             <div class="col">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" type="text">
+                <input type="text" class="form-control" name="username" id="username" minlength="2" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{2,15}$" placeholder="2 - 15 characters" required>
             </div>
+            <!--password input-->
             <div class="col">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" type="text">
+                <input type="password" class="form-control" name="password" id="password" minlength="8" maxlength="15"
+                    pattern="^[a-zA-Z0-9]{8,15}$" placeholder="8 - 15 characters" required>
             </div>
+            <!--submit button-->
             <div class="col">
-                <input type="submit" class="btn btn-info" value="Register"></input>
+                <button type="submit" class="btn btn-info">Register</button>
             </div>
         </form>
     </div>
