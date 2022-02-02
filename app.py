@@ -75,6 +75,10 @@ def view_recipe(recipe_id):
 # register
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    # TODO: change the redirect to an 403 error page 
+    if "user" in session:
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -98,6 +102,10 @@ def register():
 # log in
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # TODO: change the redirect to an 403 error page 
+    if "user" in session:
+        return redirect(url_for("home"))
+        
     if request.method == "POST":
         # if username exists in the database
         existing_user = mongo.db.users.find_one(
@@ -118,14 +126,47 @@ def login():
             flash("Incorrect password or username, try again!")
             return redirect(url_for("login"))        
 
-    return render_template("login.html")      
+    return render_template("login.html")    
+
+
+# log out
+@app.route("/logout")
+def logout():
+    # TODO: change the redirect to an 403 error page 
+    if "user" in session:
+
+        session.pop("user")
+        flash("See you later!")
+        return redirect(url_for("login"))
         
+    return redirect(url_for("home"))        
+
+
+# delete account TODO: add an 'are you sure' popup before deleting account
+@app.route("/delete_account")
+def delete_account():
+    # TODO: change the redirect to an 403 error page 
+    if "user" in session:
+
+        user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+        mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+        session.pop("user")
+        flash("Sad to see you go, you can regster with us again at any time!!")
+        return redirect(url_for("register"))
+
+    return redirect(url_for("home"))    
+
 
 # create recipe
 @app.route("/create-recipe")
 def create_recipe():
-    return render_template("create-recipe.html")   
-    
+    # TODO: change the redirect to an 403 error page 
+    if "user" in session:
+
+        return render_template("create-recipe.html")   
+
+    return redirect(url_for("home"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
