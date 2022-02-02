@@ -1,15 +1,76 @@
 {% extends "base.html" %}
 
-{% block subheader%} 
-    A place to create recipes.
+{% block subheader%}
+A place to create recipes.
 {% endblock %}
 
-{% block description%} 
-    Too Lazy?
-    <br>
-    <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+{% block description%}
+Too Lazy?
+<br>
+<a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
 {% endblock %}
 
 {% block content%}
+
+<div class="container main-container text-center">
+    <form class="row row-cols-md-3 row-cols-1 p-3" action="{{ url_for('create_recipe') }}" method="POST">
+        <div class="col">
+            <!--title-->
+            <div class="form-floating m-3">
+                <input class="form-control" id="title" name="title" type="text" placeholder="Title">
+                <label for="title">Title</label>
+            </div>
+            <!--time required-->
+            <div class="form-floating m-3">
+                <input class="form-control" id="time_required" name="time-required" type="text" placeholder="Time Required">
+                <label for="time_required">Time Required</label>
+            </div>
+            <!--food categories-->
+            <div class="form-floating m-3">
+                <select class="form-select" id="categories" name="categories" type="text">
+                    <option class="selected">Pick One</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                <label for="categories">Food Categories</label>
+            </div>
+            <!--portions-->
+            <div class="form-floating m-3">
+                <input class="form-control" id="portions" name="portions" type="text" placeholder="Portions">
+                <label for="portions">Portions</label>
+            </div>
+        </div>
+        <!--add ingredients section-->
+        <div class="col">
+            <h6>Ingredients</h6>
+            <div class="form-floating m-3">
+                <input class="form-control" id="ingredients" name="ingredients" type="text" placeholder="Ingredients">
+                <label for="portions">One ingredient at a time</label>
+            </div>
+            <button class="btn btn-info">
+                Add Ingredient
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <br>
+            <div class="card"></div>
+        </div>
+        <!--how to section-->
+        <div class="col">
+            <h6>How To</h6>
+            <div class="form-floating m-3">
+                <textarea class="form-control" name="how_to" id="how_to"></textarea>
+                <label for="how_to">First add step one, then step two...</label>
+            </div>
+            <button class="btn btn-info">
+                Add Step
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <br>
+            <div class="card"></div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
