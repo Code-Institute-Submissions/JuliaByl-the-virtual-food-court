@@ -175,8 +175,8 @@ As a *logged in* user I want to:
 1. Create the database :white_check_mark:
 2. Start on the base html for header, footer and other repeatable elements :white_check_mark:
 3. Create the rest of the front end content (not being too focused on details) :white_check_mark:
-4. Create *browse recipes/ view recipe* function :white_large_square:
-5. Create *register/log in/log out/delete account* features :white_large_square:	
+4. Create *browse recipes/ view recipe* function :white_check_mark:
+5. Create *register/log in/log out/delete account* features :white_check_mark:
 6. Create *add/ edit/ delete recipe* :white_large_square:		
 7. Fine-tune :white_large_square:	
 9. Testing :white_large_square:	
