@@ -113,7 +113,7 @@ def login():
             else:
                 flash("Incorrect password or username, try again!")
                 return redirect(url_for("login"))
-        # if ussername doesn't exist
+        # if username doesn't exist
         else:
             flash("Incorrect password or username, try again!")
             return redirect(url_for("login"))        
