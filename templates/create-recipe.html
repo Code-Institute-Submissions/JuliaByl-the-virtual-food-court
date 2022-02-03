@@ -30,29 +30,29 @@ Too Lazy?
             </div>
             <!--food categories-->
             <div class="form-floating m-3">
-                <select class="form-select" id="categories" name="categories" type="text">
+                <select class="form-select" id="food_category" name="food_category" type="text">
                     <option class="selected">Pick One</option>
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
                     <option value="dessert">Dessert</option>
                 </select>
-                <label for="categories">Food Categories</label>
+                <label for="food_category">Food Categories</label>
             </div>
             <!--portions-->
             <div class="form-floating m-3">
-                <input class="form-control" id="portions" name="portions" type="number" placeholder="Portions">
-                <label for="portions">Portions</label>
+                <input class="form-control" id="portions_amount" name="portions_amount" type="number" placeholder="Portions">
+                <label for="portions_amount">Portions</label>
             </div>
         </div>
         <!--add ingredients section-->
         <div class="col">
             <h5>Ingredients</h5>
             <div class="form-floating m-3">
-                <input class="form-control" id="ingredients" name="ingredients" type="text" placeholder="Ingredients">
-                <label for="portions">One ingredient at a time</label>
+                <input class="form-control" id="ingredients_amount" name="ingredients_amount" type="text" placeholder="Ingredients">
+                <label for="ingredients_amount">One ingredient at a time</label>
             </div>
-            <button class="btn btn-info">
+            <button class="btn btn-info" type="submit" value="add_ingredient" formaction="{{ url_for('ingredient_input') }}">
                 Add Ingredient
                 <i class="fas fa-arrow-down"></i>
             </button>
@@ -84,7 +84,7 @@ Too Lazy?
                 <textarea class="form-control" name="how_to" id="how_to"></textarea>
                 <label for="how_to">First add step one, then step two...</label>
             </div>
-            <button class="btn btn-info">
+            <button class="btn btn-info" type="submit" value="add_step" formaction="{{ url_for('steps_input') }}">
                 Add Step
                 <i class="fas fa-arrow-down"></i>
             </button>
@@ -107,12 +107,12 @@ Too Lazy?
         </div>
         <!--Submit button-->
         <div class="col-md-12 col-lg-12 mb-3">
-            <button class="btn btn-success btn-lg">Create Recipe</button>
+            <button class="btn btn-success btn-lg" type="submit" value="create_recipe">Create Recipe</button>
         </div>
         <br>
         <!--clear form button-->
         <div class="col-md-12 col-lg-12">
-            <button class="btn btn-warning btn-sm">Clear Form </button>
+            <button class="btn btn-warning btn-sm" type="reset" value="reset">Clear Form</button>
         </div>
     </form>
 </div>

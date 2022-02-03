@@ -158,14 +158,51 @@ def delete_account():
 
 
 # create recipe
-@app.route("/create-recipe")
+@app.route("/create-recipe", methods=["GET", "POST"])
 def create_recipe():
     # TODO: change the redirect to an 403 error page 
     if "user" in session:
+        if request.method == "POST":   
+            recipes = {
+                "user_id": mongo.db.users.find_one({"username": session["user"]})["_id"],
+                "title": request.form.get("title"),
+                "time_required": request.form.get("time_required"),
+                "ingredients_amount": request.form.get("ingredients_amount"),
+                "portions_amount": request.form.get("portions_amount"),
+                "how_to": request.form.get("how_to"),
+                "food_category": request.form.get("Food_category")
+            }
+            mongo.db.recipes.insert_one(recipes)
 
-        return render_template("create-recipe.html")   
+        return render_template("create-recipe.html")
 
     return redirect(url_for("home"))
+
+
+# generate ingredients inside the create recipe form and in an array
+@app.route("/ingredient_input", methods=["GET", "POST"]) 
+def ingredient_input():
+    ingredient = request.form.get("ingredients_amount")
+    return render_template("create-recipe.html")
+
+#    if len(ingredients_amount) > 0: 
+ #       if request.method == "POST":
+  #          if ingredient:
+   #             ingredients_amount.append(ingredient)
+#      else:
+#        ingredients_amount = [] 
+ #       ingredients_amount.append(ingredient)
+  #  
+   # flash(ingredients_amount)
+    #return render_template("create-recipe.html", 
+   # ingredients_amount=ingredients_amount)            
+
+
+# generate how_to sections inside the create recipe form and in an array
+@app.route("/steps_input", methods=["GET", "POST"])    
+def steps_input():
+    flash("works too!!")
+    return render_template("create-recipe.html")
 
 
 if __name__ == "__main__":
