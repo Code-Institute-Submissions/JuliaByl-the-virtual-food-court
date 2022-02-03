@@ -13,12 +13,14 @@ Too Lazy?
 {% block content%}
 
 <div class="container main-container text-center">
-    <form class="row row-cols-md-3 row-cols-1 p-3" action="{{ url_for('create_recipe') }}" method="POST">
+    <!--TODO: when submitting the form, send all the info to the databases-->
+    <form class="row row-cols-md-2 row-cols-1 p-3" action="{{ url_for('create_recipe') }}" method="POST">
         <div class="col">
             <!--title-->
+            <h5>Recipe Details</h5>
             <div class="form-floating m-3">
                 <input class="form-control" id="title" name="title" type="text" placeholder="Title">
-                <label for="title">Title</label>
+                <label for="title">Insert catchy title here</label>
             </div>
             <!--time required-->
             <div class="form-floating m-3">
@@ -39,13 +41,13 @@ Too Lazy?
             </div>
             <!--portions-->
             <div class="form-floating m-3">
-                <input class="form-control" id="portions" name="portions" type="text" placeholder="Portions">
+                <input class="form-control" id="portions" name="portions" type="number" placeholder="Portions">
                 <label for="portions">Portions</label>
             </div>
         </div>
         <!--add ingredients section-->
         <div class="col">
-            <h6>Ingredients</h6>
+            <h5>Ingredients</h5>
             <div class="form-floating m-3">
                 <input class="form-control" id="ingredients" name="ingredients" type="text" placeholder="Ingredients">
                 <label for="portions">One ingredient at a time</label>
@@ -55,11 +57,29 @@ Too Lazy?
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
-            <div class="card create-recipe-card"></div>
+            <!--how to sections card-->
+            <div class="card create-recipe-card">
+                <ul>
+                    <!--TODO: need to generate a new list item and array item per ingredient added 
+                    + remove the list and array item when clicking on the trash can -->
+                    <li class="p-1 text-start">
+                        5 dl test ingredient
+                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                    </li>
+                    <li class="p-1 text-start">
+                        5 dl test ingredient
+                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                    </li>
+                    <li class="p-1 text-start">
+                        5 dl test ingredient
+                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!--how to section-->
-        <div class="col">
-            <h6>How To</h6>
+        <div class="col col-md-12">
+            <h5>How To</h5>
             <div class="form-floating m-3 how-to-form">
                 <textarea class="form-control" name="how_to" id="how_to"></textarea>
                 <label for="how_to">First add step one, then step two...</label>
@@ -69,18 +89,30 @@ Too Lazy?
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
-            <div class="card create-recipe-card"></div>
+            <div class="card create-recipe-card">
+                <ol>
+                    <!--TODO: need to generate a new list item and array item per section added 
+                    + remove the list and array item when clicking on the trash can -->
+                    <li class="p-1 text-start mt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus, nisi nec scelerisque
+                        aliquet, eros libero elementum enim, id lobortis sem magna vitae justo. Pellentesque dictum
+                        suscipit nisi vitae luctus. Morbi at ultrices nisl. Maecenas condimentum pretium augue, a
+                        vehicula metus pulvinar ac. Quisque imperdiet ligula quis pretium dapibus. Interdum et malesuada
+                        fames ac ante ipsum primis in faucibus. Proin ullamcorper velit erat, vitae porta enim pulvinar
+                        ut.
+                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                    </li>
+                </ol>
+            </div>
         </div>
         <!--Submit button-->
-        <div class="col-md-12 mb-3">
+        <div class="col-md-12 col-lg-12 mb-3">
             <button class="btn btn-success btn-lg">Create Recipe</button>
         </div>
+        <br>
         <!--clear form button-->
-        <div class="col-md-12">
-            <button class="btn btn-warning btn-sm">
-                Clear Form 
-                <i class="fas fa-redo fa-sm"></i>
-            </button>
+        <div class="col-md-12 col-lg-12">
+            <button class="btn btn-warning btn-sm">Clear Form </button>
         </div>
     </form>
 </div>

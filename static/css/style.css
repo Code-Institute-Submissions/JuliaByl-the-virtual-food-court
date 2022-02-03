@@ -53,7 +53,7 @@ a {
 /* create recipe page */
 
 .how-to-form, .how-to-form textarea, .create-recipe-card {
-    min-height: 20vh;
+    min-height: 21.5vh;
 }
 
 /* register and login page */
