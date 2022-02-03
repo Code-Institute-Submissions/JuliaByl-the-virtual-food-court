@@ -50,6 +50,12 @@ a {
     margin: 15px;
 }
 
+/* create recipe page */
+
+.how-to-form, .how-to-form textarea, .create-recipe-card {
+    min-height: 20vh;
+}
+
 /* register and login page */
 
 .form-container form {

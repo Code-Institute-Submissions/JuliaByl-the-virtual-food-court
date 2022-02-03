@@ -22,7 +22,8 @@ Too Lazy?
             </div>
             <!--time required-->
             <div class="form-floating m-3">
-                <input class="form-control" id="time_required" name="time-required" type="text" placeholder="Time Required">
+                <input class="form-control" id="time_required" name="time-required" type="text"
+                    placeholder="Time Required">
                 <label for="time_required">Time Required</label>
             </div>
             <!--food categories-->
@@ -54,12 +55,12 @@ Too Lazy?
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
-            <div class="card"></div>
+            <div class="card create-recipe-card"></div>
         </div>
         <!--how to section-->
         <div class="col">
             <h6>How To</h6>
-            <div class="form-floating m-3">
+            <div class="form-floating m-3 how-to-form">
                 <textarea class="form-control" name="how_to" id="how_to"></textarea>
                 <label for="how_to">First add step one, then step two...</label>
             </div>
@@ -68,7 +69,18 @@ Too Lazy?
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
-            <div class="card"></div>
+            <div class="card create-recipe-card"></div>
+        </div>
+        <!--Submit button-->
+        <div class="col-md-12 mb-3">
+            <button class="btn btn-success btn-lg">Create Recipe</button>
+        </div>
+        <!--clear form button-->
+        <div class="col-md-12">
+            <button class="btn btn-warning btn-sm">
+                Clear Form 
+                <i class="fas fa-redo fa-sm"></i>
+            </button>
         </div>
     </form>
 </div>
