@@ -60,20 +60,15 @@ Too Lazy?
             <!--how to sections card-->
             <div class="card create-recipe-card">
                 <ul>
-                    <!--TODO: need to generate a new list item and array item per ingredient added 
-                    + remove the list and array item when clicking on the trash can -->
-                    <li class="p-1 text-start">
-                        5 dl test ingredient
-                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
-                    </li>
-                    <li class="p-1 text-start">
-                        5 dl test ingredient
-                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
-                    </li>
-                    <li class="p-1 text-start">
-                        5 dl test ingredient
-                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
-                    </li>
+                    <!--TODO: 1. change the for loop to exxtract the index of each ingredient in the ingredients_amount list.
+                         2. set an action on the trash can button that redirects to a function that will pop 
+                        the list item selected.-->
+                    {% for ingredient in ingredients_amount %}
+                        <li class="p-1 text-start">
+                            {{ ingredient }}
+                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" formaction="{{ url_for('delete_ingredient', index=loop.index0) }}"></button>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -91,17 +86,13 @@ Too Lazy?
             <br>
             <div class="card create-recipe-card">
                 <ol>
-                    <!--TODO: need to generate a new list item and array item per section added 
-                    + remove the list and array item when clicking on the trash can -->
-                    <li class="p-1 text-start mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus, nisi nec scelerisque
-                        aliquet, eros libero elementum enim, id lobortis sem magna vitae justo. Pellentesque dictum
-                        suscipit nisi vitae luctus. Morbi at ultrices nisl. Maecenas condimentum pretium augue, a
-                        vehicula metus pulvinar ac. Quisque imperdiet ligula quis pretium dapibus. Interdum et malesuada
-                        fames ac ante ipsum primis in faucibus. Proin ullamcorper velit erat, vitae porta enim pulvinar
-                        ut.
-                        <button class="fas fa-trash-alt float-end text-danger btn"></button>
-                    </li>
+                    <!--TODO: need to remove the list and array item when clicking on the trash can -->
+                    {% for section in how_to %}
+                        <li class="p-1 text-start mt-2">
+                            {{ section }}
+                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" formaction="{{ url_for('delete_section', index=loop.index0) }}"></button>
+                        </li>
+                    {% endfor %}    
                 </ol>
             </div>
         </div>
