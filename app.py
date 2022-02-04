@@ -177,8 +177,9 @@ def create_recipe():
             }
             mongo.db.recipes.insert_one(recipes)
             flash("Recipe has been created!")
-        ingredients_amount = []
-        how_to = []
+        
+        ingredients_amount.clear()
+        how_to.clear()
         return render_template("create-recipe.html")
 
     return redirect(url_for("home"))
