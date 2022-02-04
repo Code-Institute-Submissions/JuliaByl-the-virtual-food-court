@@ -42,6 +42,7 @@ def browse_recipes():
 def search_recipe():
     category_select = request.form.get("category_select")
     ingredient_search = request.form.get("ingredient_search") 
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     
     # loop creating different search options depending on what has been populated
     if category_select == "all-types":
@@ -50,7 +51,19 @@ def search_recipe():
             recipe_search = list(mongo.db.recipes.find({"$text": {"$search": ingredient_search}}))
         else:
         #search for everything if nothing is specified in the search
-            recipe_search = mongo.db.recipes.find()           
+            recipe_search = mongo.db.recipes.find()   
+    elif category_select == "my_recipes":
+        #search for user specific recipes and text search
+        if ingredient_search:
+            recipe_search = list(mongo.db.recipes.find(
+                {"$and": [
+                    {"user_id": user_id},
+                    {"$text": {"$search": ingredient_search}}
+                ]}
+            ))
+        # search only for user-specific recipes
+        else:
+            recipe_search = list(mongo.db.recipes.find({"user_id": user_id}))
     else:
         if ingredient_search:
         # if both dropdown and input area are populated, search for both 

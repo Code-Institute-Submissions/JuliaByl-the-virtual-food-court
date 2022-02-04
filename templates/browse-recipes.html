@@ -28,6 +28,9 @@
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
                     <option value="dessert">Dessert</option>
+                    {% if session.user %}
+                        <option value="my_recipes">My Recipes</option>
+                    {% endif %}
                 </select>
             </div>
             <div class="col align-self-end p-2">
