@@ -19,19 +19,27 @@ Too Lazy?
             <!--title-->
             <h5>Recipe Details</h5>
             <div class="form-floating m-3">
-                <input class="form-control" id="title" name="title" type="text" placeholder="Title">
+                {% if title %}
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{ title }}">
+                {% else %}
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="">  
+                {% endif %}
                 <label for="title">Insert catchy title here</label>
             </div>
             <!--time required-->
             <div class="form-floating m-3">
-                <input class="form-control" id="time_required" name="time-required" type="text"
-                    placeholder="Time Required">
+                {% if time_required %}
+                    <input class="form-control" id="time_required" name="time_required" type="text"
+                        placeholder="Time Required" value="{{ time_required }}">
+                {% else %}
+                    <input class="form-control" id="time_required" name="time_required" type="text"
+                        placeholder="Time Required" value="">
+                {% endif %}        
                 <label for="time_required">Time Required</label>
             </div>
             <!--food categories-->
             <div class="form-floating m-3">
                 <select class="form-select" id="food_category" name="food_category" type="text">
-                    <option class="selected">Pick One</option>
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
@@ -41,7 +49,13 @@ Too Lazy?
             </div>
             <!--portions-->
             <div class="form-floating m-3">
-                <input class="form-control" id="portions_amount" name="portions_amount" type="number" placeholder="Portions">
+                {% if portions_amount %}
+                    <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
+                    placeholder="Portions" value="{{ portions_amount }}">
+                {% else %}
+                    <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
+                    placeholder="Portions">
+                {% endif %}
                 <label for="portions_amount">Portions</label>
             </div>
         </div>
@@ -49,7 +63,8 @@ Too Lazy?
         <div class="col">
             <h5>Ingredients</h5>
             <div class="form-floating m-3">
-                <input class="form-control" id="ingredients_amount" name="ingredients_amount" type="text" placeholder="Ingredients">
+                <input class="form-control" id="ingredients_amount" name="ingredients_amount" type="text" 
+                placeholder="Ingredients">
                 <label for="ingredients_amount">One ingredient at a time</label>
             </div>
             <button class="btn btn-info" type="submit" value="add_ingredient" formaction="{{ url_for('ingredient_input') }}">

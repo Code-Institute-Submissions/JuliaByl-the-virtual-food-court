@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 ingredients_amount = []
 how_to = []
 
+
 # home page
 @app.route("/")
 def home():
@@ -165,19 +166,34 @@ def create_recipe():
     if "user" in session:
         if request.method == "POST":   
             recipes = {
-                "user_id": mongo.db.users.find_one({"username": session["user"]})["_id"],
+                "user_id": mongo.db.users.find_one(
+                    {"username": session["user"]})["_id"],
                 "title": request.form.get("title"),
                 "time_required": request.form.get("time_required"),
                 "ingredients_amount": ingredients_amount,
                 "portions_amount": request.form.get("portions_amount"),
-                "how_to": how_to,
-                "food_category": request.form.get("Food_category")
+                "food_category": request.form.get("food_category"),
+                "how_to": how_to
             }
             mongo.db.recipes.insert_one(recipes)
+            flash("Recipe has been created!")
 
         return render_template("create-recipe.html")
 
     return redirect(url_for("home"))
+
+
+# reloads the create_recipe page without deleting potential input values
+def reload_create_recipe():
+    title = request.form.get("title")
+    time_required = request.form.get("time_required")
+    portions_amount = request.form.get("portions_amount")
+    food_category = request.form.get("food_category")
+
+    return render_template("create-recipe.html",
+        ingredients_amount=ingredients_amount, how_to=how_to, title=title,
+        time_required=time_required, portions_amount=portions_amount,
+        food_category=food_category)
 
 
 # generate ingredients inside the create recipe form and in an array
@@ -186,8 +202,8 @@ def ingredient_input():
     if request.method == "POST":
         ingredient = request.form.get("ingredients_amount")
         ingredients_amount.append(ingredient)
-    
-    return render_template("create-recipe.html", ingredients_amount=ingredients_amount, how_to=how_to)
+
+    return reload_create_recipe()
 
 
 # delete a specific list item in the ingredients - section
@@ -195,7 +211,8 @@ def ingredient_input():
 def delete_ingredient(index):
     if request.method == "POST":
         ingredients_amount.pop(int(index))
-    return render_template("create-recipe.html", how_to=how_to, ingredients_amount=ingredients_amount)   
+    
+    return reload_create_recipe()
 
 
 # generate how_to sections inside the create recipe form and in an array
@@ -205,14 +222,15 @@ def steps_input():
         section = request.form.get("how_to")
         how_to.append(section)
 
-    return render_template("create-recipe.html", how_to=how_to, ingredients_amount=ingredients_amount)
+    return reload_create_recipe()
 
 # delete a specific list item in the how_to - section
 @app.route("/delete_section/<index>", methods=["GET", "POST"]) 
 def delete_section(index):
     if request.method == "POST":
         how_to.pop(int(index))
-    return render_template("create-recipe.html", how_to=how_to, ingredients_amount=ingredients_amount)    
+    
+    return reload_create_recipe()  
 
 
 if __name__ == "__main__":
