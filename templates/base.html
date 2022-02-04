@@ -32,11 +32,10 @@
                         {% if session.user %}
                             <a href="{{ url_for('browse_recipes') }}" class="nav-link">My Recipes</a>
                             <a href="{{ url_for('create_recipe') }}" class="nav-link">Create Recipe</a>
-                            <!--account options dropdown-->
+                            <!--account options-->
                             <a class="dropdown-toggle nav-link" type="button" id="account-button" data-bs-toggle="dropdown"
                                 aria-expanded="false">Account</a>
                             <div class="dropdown-menu" aria-labelledby="account-button">
-                                <!--TODO: logout and delete account functions-->
                                 <a href="{{ url_for('logout') }}" class="dropdown-item">Log Out</a>
                                 <a href="{{ url_for('delete_account') }}" class="dropdown-item">Delete Account</a>
                             </div>
@@ -64,7 +63,8 @@
                         <a href="{{ url_for('browse_recipes') }}" class="dropdown-item">Browse Recipes</a>
                         <!--menu changes for logged in users-->
                         {% if session.user %}
-                            <a href="{{ url_for('register') }}" class="dropdown-item">Register</a>
+                            <a href="{{ url_for('browse_recipes') }}" class="dropdown-item">My Recipes</a>
+                            <a href="{{ url_for('create_recipe') }}" class="dropdown-item">Create Recipe</a>
                             <!--account options dropdown-->
                             <h6 class="dropdown-header mt-1">Account Settings</h6>
                                 <!--TODO: logout and delete account functions-->
