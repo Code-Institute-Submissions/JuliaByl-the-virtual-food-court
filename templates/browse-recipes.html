@@ -51,17 +51,23 @@
                 {% for recipe in recipes %}
                     <div class="col">
                         <div class="card overflow-hidden">
-                            <!--card header is clickable and leads to view-recipe page-->
-                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                                <div class="card-header border-3">
-                                    <h4>{{ recipe.title }}</h4>
+                            <div class="card-header border-3">
+                                <!--if the recipe shown is created by the user in session a edit 
+                                    recipe icon will link to edit-recipe function-->
+                                {% if session.user == recipe.created_by %}
+                                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" 
+                                    class="fas fa-pen-square fa-2x btn float-end text-info"></a>
+                                {% endif %}
+                                <!--card title is clickable and leads to view-recipe page-->
+                                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                                    <h4>{{ recipe.title }} </h4>
                                     <h6 class="card-details">
                                         <i class="far fa-clock"> {{ recipe.time_required }}</i>
                                         <br>
                                         <i class="fas fa-utensils"> {{ recipe.portions_amount }}</i>
                                     </h6>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                             <div class="card-body">
                                 <p class="card-text">{{ recipe.how_to|join(" - ") }}
                             </div>

@@ -198,6 +198,13 @@ def create_recipe():
     return redirect(url_for("home"))
 
 
+# edit recipe
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    flash("works")
+    return render_template("create-recipe.html")  
+
+
 # reloads the create_recipe page without deleting potential input values
 def reload_create_recipe():
     title = request.form.get("title")
