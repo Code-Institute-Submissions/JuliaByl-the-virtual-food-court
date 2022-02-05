@@ -42,8 +42,7 @@ def browse_recipes():
 def search_recipe():
     category_select = request.form.get("category_select")
     ingredient_search = request.form.get("ingredient_search") 
-    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-    
+
     # loop creating different search options depending on what has been populated
     if category_select == "all-types":
         if ingredient_search:
@@ -57,13 +56,13 @@ def search_recipe():
         if ingredient_search:
             recipe_search = list(mongo.db.recipes.find(
                 {"$and": [
-                    {"user_id": user_id},
+                    {"created_by": session["user"]},
                     {"$text": {"$search": ingredient_search}}
                 ]}
             ))
         # search only for user-specific recipes
         else:
-            recipe_search = list(mongo.db.recipes.find({"user_id": user_id}))
+            recipe_search = list(mongo.db.recipes.find({"created_by": session["user"]}))
     else:
         if ingredient_search:
         # if both dropdown and input area are populated, search for both 
@@ -75,7 +74,8 @@ def search_recipe():
             ))
         else:
         # if only a food category is selected, search by that
-            recipe_search = list(mongo.db.recipes.find({"food_category": category_select})) 
+            recipe_search = list(mongo.db.recipes.find(
+                {"food_category": category_select})) 
 
     return render_template("browse-recipes.html", recipes=recipe_search) 
 
@@ -179,8 +179,8 @@ def create_recipe():
     if "user" in session:
         if request.method == "POST":   
             recipes = {
-                "user_id": mongo.db.users.find_one(
-                    {"username": session["user"]})["_id"],
+                "created_by": mongo.db.users.find_one(
+                    {"username": session["user"]}),
                 "title": request.form.get("title"),
                 "time_required": request.form.get("time_required"),
                 "ingredients_amount": ingredients_amount,
