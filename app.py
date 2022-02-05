@@ -177,7 +177,7 @@ def delete_account():
 def create_recipe():
     # TODO: change the redirect to an 403 error page 
     if "user" in session:
-        if request.method == "POST":   
+        if request.method == "POST":
             recipes = {
                 "created_by": mongo.db.users.find_one(
                     {"username": session["user"]}),
@@ -193,7 +193,7 @@ def create_recipe():
         
         ingredients_amount.clear()
         how_to.clear()
-        return render_template("create-recipe.html")
+        return render_template("create-recipe.html", recipe=0)
 
     return redirect(url_for("home"))
 
@@ -201,23 +201,27 @@ def create_recipe():
 # edit recipe
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    if request.method == "POST":
-        
-
-    return render_template("create-recipe.html")  
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    ingredients_amount.clear()
+    how_to.clear()
+    ingredients_amount.extend(recipe["ingredients_amount"])
+    how_to.extend(recipe["how_to"])
+    return render_template("create-recipe.html", recipe=recipe)
 
 
 # reloads the create_recipe page without deleting potential input values
 def reload_create_recipe():
-    title = request.form.get("title")
-    time_required = request.form.get("time_required")
-    portions_amount = request.form.get("portions_amount")
-    food_category = request.form.get("food_category")
-
+    recipe = {
+        "title": request.form.get("title"),
+        "time_required": request.form.get("time_required"),
+        "portions_amount": request.form.get("portions_amount"),
+        "food_category": request.form.get("food_category"),
+        "ingredients_amount": ingredients_amount,
+        "how_to": how_to
+    }
+    
     return render_template("create-recipe.html",
-        ingredients_amount=ingredients_amount, how_to=how_to, title=title,
-        time_required=time_required, portions_amount=portions_amount,
-        food_category=food_category)
+    recipe=recipe)
 
 
 # generate ingredients inside the create recipe form and in an array

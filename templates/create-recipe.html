@@ -19,8 +19,8 @@ Too Lazy?
             <!--title-->
             <h5>Recipe Details</h5>
             <div class="form-floating m-3">
-                {% if title %}
-                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{ title }}">
+                {% if recipe.title %}
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{ recipe.title }}">
                 {% else %}
                     <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="">  
                 {% endif %}
@@ -28,9 +28,9 @@ Too Lazy?
             </div>
             <!--time required-->
             <div class="form-floating m-3">
-                {% if time_required %}
+                {% if recipe.time_required %}
                     <input class="form-control" id="time_required" name="time_required" type="text"
-                        placeholder="Time Required" value="{{ time_required }}">
+                        placeholder="Time Required" value="{{ recipe.time_required }}">
                 {% else %}
                     <input class="form-control" id="time_required" name="time_required" type="text"
                         placeholder="Time Required" value="">
@@ -49,9 +49,9 @@ Too Lazy?
             </div>
             <!--portions-->
             <div class="form-floating m-3">
-                {% if portions_amount %}
+                {% if recipe.portions_amount %}
                     <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
-                    placeholder="Portions" value="{{ portions_amount }}">
+                    placeholder="Portions" value="{{ recipe.portions_amount }}">
                 {% else %}
                     <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
                     placeholder="Portions">
@@ -67,7 +67,8 @@ Too Lazy?
                 placeholder="Ingredients">
                 <label for="ingredients_amount">One ingredient at a time</label>
             </div>
-            <button class="btn btn-info" type="submit" value="add_ingredient" formaction="{{ url_for('ingredient_input') }}">
+            <button class="btn btn-info" type="submit" value="add_ingredient" 
+            formaction="{{ url_for('ingredient_input') }}">
                 Add Ingredient
                 <i class="fas fa-arrow-down"></i>
             </button>
@@ -75,10 +76,11 @@ Too Lazy?
             <!--how to sections card-->
             <div class="card create-recipe-card">
                 <ul>
-                    {% for ingredient in ingredients_amount %}
+                    {% for ingredient in recipe.ingredients_amount %}
                         <li class="p-1 text-start">
                             {{ ingredient }}
-                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" formaction="{{ url_for('delete_ingredient', index=loop.index0) }}"></button>
+                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" 
+                            formaction="{{ url_for('delete_ingredient', index=loop.index0) }}"></button>
                         </li>
                     {% endfor %}
                 </ul>
@@ -91,17 +93,19 @@ Too Lazy?
                 <textarea class="form-control" name="how_to" id="how_to"></textarea>
                 <label for="how_to">First add step one, then step two...</label>
             </div>
-            <button class="btn btn-info" type="submit" value="add_step" formaction="{{ url_for('steps_input') }}">
+            <button class="btn btn-info" type="submit" value="add_step" 
+            formaction="{{ url_for('steps_input') }}">
                 Add Step
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
             <div class="card create-recipe-card">
                 <ol>
-                    {% for section in how_to %}
+                    {% for section in recipe.how_to %}
                         <li class="p-1 text-start mt-2">
                             {{ section }}
-                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" formaction="{{ url_for('delete_section', index=loop.index0) }}"></button>
+                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" 
+                            formaction="{{ url_for('delete_section', index=loop.index0) }}"></button>
                         </li>
                     {% endfor %}    
                 </ol>
@@ -109,7 +113,12 @@ Too Lazy?
         </div>
         <!--Submit button-->
         <div class="col-md-12 col-lg-12 mb-3">
-            <button class="btn btn-success btn-lg" type="submit" value="create_recipe">Create Recipe</button>
+            <!--TODO: fix the issue where on page refresh it defaults to the submit button when it should be an update button-->
+            {% if recipe.created_by == session.user %}
+                <button class="btn btn-success btn-lg" type="submit" value="Update Recipe">Update Recipe</button>
+            {% else %}
+                <button class="btn btn-success btn-lg" type="submit" value="Create Recipe">Create Recipe</button>
+            {% endif %}
         </div>
         <br>
         <!--clear form button-->
