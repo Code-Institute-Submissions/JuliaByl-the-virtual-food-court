@@ -199,9 +199,11 @@ def create_recipe():
 
 
 # edit recipe
-@app.route("/edit_recipe/<recipe_id>")
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    flash("works")
+    if request.method == "POST":
+        
+
     return render_template("create-recipe.html")  
 
 
