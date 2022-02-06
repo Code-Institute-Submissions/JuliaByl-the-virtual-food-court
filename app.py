@@ -17,6 +17,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 # global variables
 mongo = PyMongo(app)
 ingredients_amount = []
@@ -207,58 +208,6 @@ def edit_recipe(recipe_id):
     ingredients_amount.extend(recipe["ingredients_amount"])
     how_to.extend(recipe["how_to"])
     return render_template("create-recipe.html", recipe=recipe)
-
-
-# reloads the create_recipe page without deleting potential input values
-def reload_create_recipe():
-    recipe = {
-        "title": request.form.get("title"),
-        "time_required": request.form.get("time_required"),
-        "portions_amount": request.form.get("portions_amount"),
-        "food_category": request.form.get("food_category"),
-        "ingredients_amount": ingredients_amount,
-        "how_to": how_to
-    }
-    
-    return render_template("create-recipe.html",
-    recipe=recipe)
-
-
-# generate ingredients inside the create recipe form and in an array
-@app.route("/ingredient_input", methods=["GET", "POST"]) 
-def ingredient_input():
-    if request.method == "POST":
-        ingredient = request.form.get("ingredients_amount")
-        ingredients_amount.append(ingredient)
-
-    return reload_create_recipe()
-
-
-# delete a specific list item in the ingredients - section
-@app.route("/delete_ingredient/<index>", methods=["GET", "POST"])  
-def delete_ingredient(index):
-    if request.method == "POST":
-        ingredients_amount.pop(int(index))
-    
-    return reload_create_recipe()
-
-
-# generate how_to sections inside the create recipe form and in an array
-@app.route("/steps_input", methods=["GET", "POST"])    
-def steps_input():
-    if request.method == "POST":
-        section = request.form.get("how_to")
-        how_to.append(section)
-
-    return reload_create_recipe()
-
-# delete a specific list item in the how_to - section
-@app.route("/delete_section/<index>", methods=["GET", "POST"]) 
-def delete_section(index):
-    if request.method == "POST":
-        how_to.pop(int(index))
-    
-    return reload_create_recipe()  
 
 
 if __name__ == "__main__":

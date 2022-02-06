@@ -67,22 +67,15 @@ Too Lazy?
                 placeholder="Ingredients">
                 <label for="ingredients_amount">One ingredient at a time</label>
             </div>
-            <button class="btn btn-info" type="submit" value="add_ingredient" 
-            formaction="{{ url_for('ingredient_input') }}">
+            <button class="btn btn-info" id="add_ingredient" type="button" value="add_ingredient">
                 Add Ingredient
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
             <!--how to sections card-->
             <div class="card create-recipe-card">
-                <ul>
-                    {% for ingredient in recipe.ingredients_amount %}
-                        <li class="p-1 text-start">
-                            {{ ingredient }}
-                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" 
-                            formaction="{{ url_for('delete_ingredient', index=loop.index0) }}"></button>
-                        </li>
-                    {% endfor %}
+                <ul id="ingredients_list">
+                    <!--ingredient input goes here-->
                 </ul>
             </div>
         </div>
@@ -93,21 +86,14 @@ Too Lazy?
                 <textarea class="form-control" name="how_to" id="how_to"></textarea>
                 <label for="how_to">First add step one, then step two...</label>
             </div>
-            <button class="btn btn-info" type="submit" value="add_step" 
-            formaction="{{ url_for('steps_input') }}">
+            <button class="btn btn-info" id="add_step" type="button" value="add_step">
                 Add Step
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
             <div class="card create-recipe-card">
-                <ol>
-                    {% for section in recipe.how_to %}
-                        <li class="p-1 text-start mt-2">
-                            {{ section }}
-                            <button class="fas fa-trash-alt float-end text-danger btn" method="POST" 
-                            formaction="{{ url_for('delete_section', index=loop.index0) }}"></button>
-                        </li>
-                    {% endfor %}    
+                <ol id="how_to_list">
+                    <!--how_to sections go here-->
                 </ol>
             </div>
         </div>
