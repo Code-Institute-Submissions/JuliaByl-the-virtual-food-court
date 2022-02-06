@@ -37,7 +37,11 @@
                                 aria-expanded="false">Account</a>
                             <div class="dropdown-menu" aria-labelledby="account-button">
                                 <a href="{{ url_for('logout') }}" class="dropdown-item">Log Out</a>
-                                <a href="{{ url_for('delete_account') }}" class="dropdown-item">Delete Account</a>
+                                <hr class="dropdown-divider mt-3">
+                                <a class="dropdown-item text-danger" data-bs-toggle="modal" 
+                                    data-bs-target="#warning-modal">
+                                   <small>Delete Account</small>
+                                </a>
                             </div>
                             <!--menu changes for logged out users-->
                         {% else %}
@@ -69,7 +73,8 @@
                             <h6 class="dropdown-header mt-1">Account Settings</h6>
                                 <a href="{{ url_for('logout') }}" class="dropdown-item">Log Out</a>
                                 <hr class="dropdown-divider mt-3">
-                                <a href="{{ url_for('delete_account') }}" class="dropdown-item text-danger">
+                                <a class="dropdown-item text-danger" data-bs-toggle="modal" 
+                                    data-bs-target="#warning-modal">
                                     <small>Delete Account</small>
                                 </a>
                         <!--menu changes for logged out users-->
@@ -109,6 +114,28 @@
                         {% endif %}
                         {% endwith %}
                     </section>
+                </div>
+            </div>
+        </div>
+        <!--modal for making sure the user wants to delete their account-->
+        <div class="modal" id="warning-modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Are you sure?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            This means you will not be able to restore your account details
+                            and the recipes you have created will no longer be possible to edit 
+                            or delete.
+                        </p>
+                    </div>
+                    <form class="modal-footer">
+                        <button type="submit" formaction="{{ url_for('delete_account') }}" class="btn btn-danger">Yes, Im sure!</button>
+                        <button class="btn btn-info" data-bs-dismiss="modal" aria-label="Close">I changed my mind</button>
+                    </form>
                 </div>
             </div>
         </div>
