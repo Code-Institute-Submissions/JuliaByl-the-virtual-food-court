@@ -80,6 +80,12 @@ def search_recipe():
     return render_template("browse-recipes.html", recipes=recipe_search) 
 
 
+# my recipes menu option, searches for "my recipes" in browse-recipes
+@app.route("/my_recipes", methods=["GET", "POST"])
+def my_recipes():
+    recipe_search = list(mongo.db.recipes.find({"created_by": session["user"]}))
+    return render_template("browse-recipes.html", recipes=recipe_search) 
+
 # view recipe
 @app.route("/view-recipe/<recipe_id>")
 def view_recipe(recipe_id):
@@ -110,6 +116,7 @@ def register():
 
         session["user"] = request.form.get("username").lower() 
         flash("Successfully Registered!")
+        return redirect(url_for("home"))
 
     return render_template("register.html")
 
