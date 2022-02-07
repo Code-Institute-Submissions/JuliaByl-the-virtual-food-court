@@ -139,9 +139,9 @@ def login():
         # if username doesn't exist
         else:
             flash("Incorrect password or username, try again!")
-            return redirect(url_for("login"))        
+            return redirect(url_for("login"))
 
-    return render_template("login.html")    
+    return render_template("login.html")
 
 
 # log out
@@ -181,7 +181,6 @@ def create_recipe():
             recipe = json.loads(request.get_data(as_text=True))
             recipe["created_by"] = session["user"]
             mongo.db.recipes.insert_one(recipe)
-            flash("New recipe successfully created")
         
         return render_template("create-recipe.html", recipe=0)
 

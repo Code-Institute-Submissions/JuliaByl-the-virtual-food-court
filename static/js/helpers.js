@@ -60,8 +60,8 @@ function onsubmit(){
             "food_category": $("#food_category").val(),
             "how_to": how_to
         }));
-        
-        alert("Recipe has been successfully created!")
+
+        alert("Recipe has been successfully created!");
         // TODO: Change this url when reopening workspace until project has bee ndeployed or it won't work
         window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes");
     })
