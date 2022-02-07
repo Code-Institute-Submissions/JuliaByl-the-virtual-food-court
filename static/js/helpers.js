@@ -4,9 +4,8 @@ $(document).ready(function () {
     add_step();
     onsubmit();
     onedit();
+    deletedalert();
 });
-
-
 
 // Deletes parent of element when trashcan is clicked
 function delete_item() {
@@ -47,6 +46,7 @@ function add_step(){
     })
 }
 
+// when the user is clicking the "create-recipe" - button (posts the information to python function)
 function onsubmit(){
     $("#create_recipe").click(function(){
         let ingredients_amount = grab_ingredients();
@@ -67,6 +67,7 @@ function onsubmit(){
     })
 }
 
+// when the user is clicking the "edit-recipe" - button (posts the information to python function)
 function onedit(){
     $("#update_recipe").click(function(){
         let ingredients_amount = grab_ingredients();
@@ -85,11 +86,19 @@ function onedit(){
         }));
 
         alert("Recipe has been successfully updated!")
-        // TODO: Change this url when reopening workspace until project has bee ndeployed or it won't work
+        // TODO: Change this url when reopening workspace until project has been deployed or it won't work
         window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes"); 
     })
 }
 
+// displays an alert showing that the recipe has been deleted when clicking the "delete recipe" - button 
+function deletedalert(){
+    $("#delete_recipe").click(function(){
+        alert("Recipe has been deleted!")
+    })
+}
+
+// grabs the ingredients listed in the ingredients_list and adds them in a list
 function grab_ingredients(){
     let ingredients_list = $("#ingredients_list");
     let ingredients = ingredients_list.children();
@@ -103,6 +112,7 @@ function grab_ingredients(){
     return ingredients_amount;
 }
 
+// grabs the how-to steps listed in the how_to_list and adds them in a list
 function grab_steps(){
     let how_to_list = $("#how_to_list");
     let steps = how_to_list.children();

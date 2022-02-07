@@ -113,13 +113,36 @@ Too Lazy?
         </div>
         <!--Submit button-->
         <div class="col-md-12 col-lg-12 mb-3">
-            <!--TODO: fix the issue where on page refresh it defaults to the submit button when it should be an update button-->
             {% if recipe.created_by == session.user %}
-                <button class="btn btn-success btn-lg" id="update_recipe" type="button" value="Update Recipe">Update Recipe</button>
+                <button class="btn btn-success btn-lg mb-3" id="update_recipe" type="button" value="Update Recipe">Update Recipe</button>
+                <br>
+                <a class="btn btn-danger btn-sm" type="button" value="Delete Recipe"
+                 data-bs-toggle="modal" data-bs-target="#recipe-warning-modal">Delete Recipe</a>
             {% else %}
-                <button class="btn btn-success btn-lg" id="create_recipe" type="button" value="Create Recipe">Create Recipe</button>
+                <button class="btn btn-success btn-lg" value="Create Recipe">Create Recipe</button>
             {% endif %}
         </div>
+</div>
+<!--modal for making sure the user wants to delete a recipe-->
+<div class="modal" id="recipe-warning-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    You can't recover your recipe details after this step.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" 
+                    class="btn btn-danger" id="delete_recipe">Yes, Im sure!</a>
+                <button class="btn btn-info" data-bs-dismiss="modal" aria-label="Close">I changed my mind</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
