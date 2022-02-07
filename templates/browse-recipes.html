@@ -23,11 +23,14 @@
                 </label>
                 <!--select dropdown for food types-->
                 <select class="form-select w-50 mx-auto" id="category_select" name="category_select" aria-label="Dropdown menu for categories options">
-                    <option value="all-types" selected>All food types</option>
+                    <option value="all-types">All food types</option>
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
                     <option value="dessert">Dessert</option>
+                    {% if session.user %}
+                        <option value="my_recipes">My Recipes</option>
+                    {% endif %}
                 </select>
             </div>
             <div class="col align-self-end p-2">
@@ -48,19 +51,25 @@
                 {% for recipe in recipes %}
                     <div class="col">
                         <div class="card overflow-hidden">
-                            <!--card header is clickable and leads to view-recipe page-->
-                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                                <div class="card-header border-3">
-                                    <h4>{{ recipe.title }}</h4>
+                            <div class="card-header border-3">
+                                <!--if the recipe shown is created by the user in session an edit 
+                                    recipe icon will link to edit-recipe function-->
+                                {% if session.user == recipe.created_by %}
+                                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" 
+                                    class="fas fa-pen-square fa-2x btn float-end text-info"></a>
+                                {% endif %}
+                                <!--card title is clickable and leads to view-recipe page-->
+                                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                                    <h4>{{ recipe.title }} </h4>
                                     <h6 class="card-details">
                                         <i class="far fa-clock"> {{ recipe.time_required }}</i>
                                         <br>
                                         <i class="fas fa-utensils"> {{ recipe.portions_amount }}</i>
                                     </h6>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                             <div class="card-body">
-                                <p class="card-text">{{ recipe.how_to|join() }}
+                                <p class="card-text">{{ recipe.how_to|join(" - ") }}
                             </div>
                         </div>
                     </div>

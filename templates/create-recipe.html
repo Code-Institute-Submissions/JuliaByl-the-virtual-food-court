@@ -1,15 +1,148 @@
 {% extends "base.html" %}
 
-{% block subheader%} 
-    A place to create recipes.
+{% block subheader%}
+A place to create recipes.
 {% endblock %}
 
-{% block description%} 
-    Too Lazy?
-    <br>
-    <a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
+{% block description%}
+Too Lazy?
+<br>
+<a href="{{ url_for('browse_recipes') }}" class="btn btn-outline-success">Browse Recipes</a>
 {% endblock %}
 
 {% block content%}
+
+<div class="container main-container text-center">
+    <form class="row row-cols-md-2 row-cols-1 p-3">
+        <div class="col">
+            <!--title-->
+            <h5>Recipe Details</h5>
+            <div class="form-floating m-3">
+                {% if recipe.title %}
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="{{ recipe.title }}">
+                {% else %}
+                    <input class="form-control" id="title" name="title" type="text" placeholder="Title" value="">  
+                {% endif %}
+                <label for="title">Insert catchy title here</label>
+            </div>
+            <!--time required-->
+            <div class="form-floating m-3">
+                {% if recipe.time_required %}
+                    <input class="form-control" id="time_required" name="time_required" type="text"
+                        placeholder="Time Required" value="{{ recipe.time_required }}">
+                {% else %}
+                    <input class="form-control" id="time_required" name="time_required" type="text"
+                        placeholder="Time Required" value="">
+                {% endif %}        
+                <label for="time_required">Time Required</label>
+            </div>
+            <!--food categories-->
+            <div class="form-floating m-3">
+                <select class="form-select" id="food_category" name="food_category" type="text">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                <label for="food_category">Food Categories</label>
+            </div>
+            <!--portions-->
+            <div class="form-floating m-3">
+                {% if recipe.portions_amount %}
+                    <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
+                    placeholder="Portions" value="{{ recipe.portions_amount }}">
+                {% else %}
+                    <input class="form-control" id="portions_amount" name="portions_amount" type="number" 
+                    placeholder="Portions">
+                {% endif %}
+                <label for="portions_amount">Portions</label>
+            </div>
+        </div>
+        <!--add ingredients section-->
+        <div class="col">
+            <h5>Ingredients</h5>
+            <div class="form-floating m-3">
+                <input class="form-control" id="ingredients_amount" name="ingredients_amount" type="text" 
+                placeholder="Ingredients">
+                <label for="ingredients_amount">One ingredient at a time</label>
+            </div>
+            <button class="btn btn-info" id="add_ingredient" type="button" value="add_ingredient">
+                Add Ingredient
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <br>
+            <div class="card create-recipe-card">
+                <ul id="ingredients_list">
+                    <!--ingredient input goes here-->
+                    {% if recipe.ingredients_amount|length > 0 %}
+                        {% for ingredient in recipe.ingredients_amount %}
+                        <li class="p-1 text-start">
+                            {{ingredient}}
+                            <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!--how to section-->
+        <div class="col col-md-12">
+            <h5>How To</h5>
+            <div class="form-floating m-3 how-to-form">
+                <textarea class="form-control" name="how_to" id="how_to"></textarea>
+                <label for="how_to">First add step one, then step two...</label>
+            </div>
+            <button class="btn btn-info" id="add_step" type="button" value="add_step">
+                Add Step
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <br>
+            <div class="card create-recipe-card">
+                <ol id="how_to_list">
+                    <!--how_to sections go here-->
+                    {% if recipe.how_to|length > 0 %}
+                        {% for section in recipe.how_to %}
+                        <li class="p-1 text-start">
+                            {{section}}
+                            <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ol>
+            </div>
+        </div>
+        <!--Submit button-->
+        <div class="col-md-12 col-lg-12 mb-3">
+            {% if recipe.created_by == session.user %}
+                <button class="btn btn-success btn-lg mb-3" id="update_recipe" type="button" value="Update Recipe">Update Recipe</button>
+                <br>
+                <a class="btn btn-danger btn-sm" type="button" value="Delete Recipe"
+                 data-bs-toggle="modal" data-bs-target="#recipe-warning-modal">Delete Recipe</a>
+            {% else %}
+                <button type="button" class="btn btn-success btn-lg" id="create_recipe" value="Create Recipe">Create Recipe</button>
+            {% endif %}
+        </div>
+</div>
+<!--modal for making sure the user wants to delete a recipe-->
+<div class="modal" id="recipe-warning-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    You can't recover your recipe details after this step.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" 
+                    class="btn btn-danger" id="delete_recipe">Yes, Im sure!</a>
+                <button class="btn btn-info" data-bs-dismiss="modal" aria-label="Close">I changed my mind</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
