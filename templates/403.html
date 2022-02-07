@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block subheader%} 
+    Uh oh, you're not supposed to be here!
+{% endblock %}
+
+{% block description %}
+    It seems that you are trying to access something forbidden.
+    Go home instead?
+    <br>
+    <a href="{{ url_for('home') }}" class="btn btn-outline-success">Home</a>
+{% endblock %}

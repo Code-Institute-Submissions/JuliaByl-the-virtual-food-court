@@ -1,7 +1,7 @@
 import os
 from flask import (
-    Flask, render_template, redirect, 
-    request, session, url_for, flash
+    Flask, render_template, redirect,
+    request, session, url_for, flash, abort
 )
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -87,16 +87,20 @@ def search_recipe():
 # my recipes menu option, searches for "my recipes" in browse-recipes
 @app.route("/my_recipes", methods=["GET", "POST"])
 def my_recipes():
-    recipe_search = list(mongo.db.recipes.find(
-        {"created_by": session["user"]}))
-    return render_template("browse-recipes.html", recipes=recipe_search)
+    if "user" in session:
+        recipe_search = list(mongo.db.recipes.find(
+            {"created_by": session["user"]}))
+        return render_template("browse-recipes.html", recipes=recipe_search)
+    abort(403)
 
 
 # view recipe
 @app.route("/view-recipe/<recipe_id>")
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view-recipe.html", recipe=recipe)
+    if recipe:
+        return render_template("view-recipe.html", recipe=recipe)
+    abort(404)
 
 
 # register
@@ -104,7 +108,7 @@ def view_recipe(recipe_id):
 def register():
     # TODO: change the redirect to an 403 error page
     if "user" in session:
-        return redirect(url_for("home"))
+        abort(403)
 
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -132,7 +136,7 @@ def register():
 def login():
     # TODO: change the redirect to an 403 error page
     if "user" in session:
-        return redirect(url_for("home"))
+        abort(403)
 
     if request.method == "POST":
         # if username exists in the database
@@ -164,9 +168,10 @@ def logout():
     if "user" in session:
         session.pop("user")
         flash("See you later!")
+
         return redirect(url_for("login"))
 
-    return redirect(url_for("home"))
+    abort(403)
 
 
 # delete account
@@ -178,9 +183,10 @@ def delete_account():
         mongo.db.users.delete_one({"_id": ObjectId(user_id)})
         session.pop("user")
         flash("Sad to see you go, you can regster with us again at any time!!")
+
         return redirect(url_for("register"))
 
-    return redirect(url_for("home"))
+    abort(403)
 
 
 # create recipe
@@ -195,29 +201,57 @@ def create_recipe():
 
         return render_template("create-recipe.html", recipe=0)
 
-    return redirect(url_for("home"))
+    abort(403)
 
 
 # edit recipe
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    if request.method == "POST":
-        recipe = json.loads(request.get_data(as_text=True))
-        recipe["created_by"] = session["user"]
-        mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)}, {"$set": recipe})
-        flash("Recipe successfully updated")
-        recipes = mongo.db.recipes.find()
-        return render_template("home.html", recipes=recipes)
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("create-recipe.html", recipe=recipe)
+    if "user" in session:
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        if session["user"] == recipe.created_by:
+            if request.method == "POST":
+                recipe = json.loads(request.get_data(as_text=True))
+                recipe["created_by"] = session["user"]
+                mongo.db.recipes.update_one(
+                    {"_id": ObjectId(recipe_id)}, {"$set": recipe})
+                flash("Recipe successfully updated")
+                recipes = mongo.db.recipes.find()
+                return render_template("home.html", recipes=recipes)
+
+            return render_template("create-recipe.html", recipe=recipe)
+
+    abort(403)
 
 
 # delete recipe
 @app.route("/delete_recipe/<recipe_id>", methods=["GET", "POST"])
 def delete_recipe(recipe_id):
-    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
-    return redirect(url_for("home"))
+    if "user" in session:
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        if session["user"] == recipe.created_by:
+            mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+
+            return redirect(url_for("home"))
+
+    abort(403)
+
+
+# error functions below
+
+@app.errorhandler(403)
+def page_forbidden(e):
+    return render_template("403.html"), 403
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template("500.html"), 500
 
 
 if __name__ == "__main__":
