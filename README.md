@@ -51,6 +51,7 @@
     <li>
         <a href="#roadmap">Roadmap</a>
         <ul>
+            <li><a href="#deployment">Deployment</a></li>
             <li><a href="#bugs">Bugs</a></li>
             <li><a href="#rough-timeline-for-creating-website">Rough Timeline For Creating Website</a></li>
             <li><a href="#site-changes">Site Changes</a></li>
@@ -164,6 +165,22 @@ As a *logged in* user I want to:
 ## Roadmap
 <hr>
 
+### Deployment
+
+The site was deployed to Heroku. Below is a list of the steps I took to get my page up and running.
+
+1. I installed the dependencies needed for the project, and saved them in a requirements.txt file.
+2. I created a Procfile to let Heroku know which file to run. I used the command: echo web: python app.py.
+3. Logged in to Heroku and created my new app. The exact name I wanted to use for the app was available (the-local-food-court).
+4. Since I am based in Europe, I chose EU for region.
+5. I chose automatic deployment for this project, by going to the deploy tab in Heroku, picking GitHub for the deployment, and chosing my project repository before clicking on "connect".
+6. Next step was to go to settings > "reveal config vars" and added the varables listed in my env.py file.
+7. Enable automatic Deployment.
+8. All done!
+<br>
+
+![A screenshot of the page deployed to Heroku](documentation/for_readme_images/deployment.png)
+
 ### Bugs
 
 [Link to Github issues section](https://github.com/JuliaByl/the-virtual-food-court/issues)
@@ -177,16 +194,22 @@ As a *logged in* user I want to:
 3. Create the rest of the front end content (not being too focused on details) :white_check_mark:
 4. Create *browse recipes/ view recipe* function :white_check_mark:
 5. Create *register/log in/log out/delete account* features :white_check_mark:
-6. Create *add/ edit/ delete recipe* :white_large_square:		
+6. Create *add/ edit/ delete recipe* :white_check_mark:	
 7. Fine-tune :white_large_square:	
 9. Testing :white_large_square:	
-10. Deploy website :white_large_square:	
+10. Deploy website :white_check_mark:	
 
 ### Site Changes
 <br>
 
 * After having a talk with my mentor, I decided to change the layout of the how-to section in view-recipe.html slightly. Instead of having one big block of text with no breathing room, I now have list items separated with some room in between each other.
 In MongoDB the how-to attribute changed from a string to an array. This will also change the layout of the create-recipe page, since I will have to cater for the list items. I will make the input for the how-to section the same as for the ingredients input.
+
+* I decided to remove the "clear recipe" - button in create-recipe.html since it is possible to remove the contents of the form manually and I wanted to make sure I had enough time to have good quality code for the more essential functions that would "make or break" the page.
+
+* The columns in the create-recipe.html form was originally meant to be 3 horizontally aligned medium and bigger screen sizes. (See layout in my wireframes). But once it was created and I tested adding information to the forms, I saw that it looked too messy and decided to change the layout to max. 2 columns aligned horizontally. The how-to textarea needed a full col-12 (Bootstrap) since it generally gets more text than the other inputs.
+
+* In the recipe preview cards I added additional information to the header. So instead of just a title and a preview of the recipe how-to section, the user can also see portions and time required. In my wireframes I added images as part of the cards too, but due to lack of time, I will unfortunately have to drop that. 
 
 ### Testing
 <br>
