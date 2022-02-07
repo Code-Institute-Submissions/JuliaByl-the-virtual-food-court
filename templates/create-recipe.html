@@ -13,8 +13,7 @@ Too Lazy?
 {% block content%}
 
 <div class="container main-container text-center">
-    <!--TODO: when submitting the form, send all the info to the databases-->
-    <form class="row row-cols-md-2 row-cols-1 p-3" action="{{ url_for('create_recipe') }}" method="POST">
+    <form class="row row-cols-md-2 row-cols-1 p-3">
         <div class="col">
             <!--title-->
             <h5>Recipe Details</h5>
@@ -72,10 +71,17 @@ Too Lazy?
                 <i class="fas fa-arrow-down"></i>
             </button>
             <br>
-            <!--how to sections card-->
             <div class="card create-recipe-card">
                 <ul id="ingredients_list">
                     <!--ingredient input goes here-->
+                    {% if recipe.ingredients_amount|length > 0 %}
+                        {% for ingredient in recipe.ingredients_amount %}
+                        <li class="p-1 text-start">
+                            {{ingredient}}
+                            <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -94,6 +100,14 @@ Too Lazy?
             <div class="card create-recipe-card">
                 <ol id="how_to_list">
                     <!--how_to sections go here-->
+                    {% if recipe.how_to|length > 0 %}
+                        {% for section in recipe.how_to %}
+                        <li class="p-1 text-start">
+                            {{section}}
+                            <button class="fas fa-trash-alt float-end text-danger btn"></button>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
                 </ol>
             </div>
         </div>
@@ -101,17 +115,11 @@ Too Lazy?
         <div class="col-md-12 col-lg-12 mb-3">
             <!--TODO: fix the issue where on page refresh it defaults to the submit button when it should be an update button-->
             {% if recipe.created_by == session.user %}
-                <button class="btn btn-success btn-lg" type="submit" value="Update Recipe">Update Recipe</button>
+                <button class="btn btn-success btn-lg" id="update_recipe" type="button" value="Update Recipe">Update Recipe</button>
             {% else %}
-                <button class="btn btn-success btn-lg" type="submit" value="Create Recipe">Create Recipe</button>
+                <button class="btn btn-success btn-lg" id="create_recipe" type="button" value="Create Recipe">Create Recipe</button>
             {% endif %}
         </div>
-        <br>
-        <!--clear form button-->
-        <div class="col-md-12 col-lg-12">
-            <button class="btn btn-warning btn-sm" type="reset" value="reset">Clear Form</button>
-        </div>
-    </form>
 </div>
 
 {% endblock %}

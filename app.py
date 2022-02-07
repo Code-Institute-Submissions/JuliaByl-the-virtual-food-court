@@ -6,6 +6,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import json
 if os.path.exists("env.py"):
     import env
 
@@ -20,8 +21,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 # global variables
 mongo = PyMongo(app)
-ingredients_amount = []
-how_to = []
 
 
 # home page
@@ -158,7 +157,7 @@ def logout():
     return redirect(url_for("home"))        
 
 
-# delete account TODO: add an 'are you sure' popup before deleting account
+# delete account
 @app.route("/delete_account")
 def delete_account():
     # TODO: change the redirect to an 403 error page 
@@ -176,24 +175,14 @@ def delete_account():
 # create recipe
 @app.route("/create-recipe", methods=["GET", "POST"])
 def create_recipe():
-    # TODO: change the redirect to an 403 error page 
+    # TODO: change the #redirect to an 403 error page 
     if "user" in session:
         if request.method == "POST":
-            recipes = {
-                "created_by": mongo.db.users.find_one(
-                    {"username": session["user"]}),
-                "title": request.form.get("title"),
-                "time_required": request.form.get("time_required"),
-                "ingredients_amount": ingredients_amount,
-                "portions_amount": request.form.get("portions_amount"),
-                "food_category": request.form.get("food_category"),
-                "how_to": how_to
-            }
-            mongo.db.recipes.insert_one(recipes)
-            flash("Recipe has been created!")
+            recipe = json.loads(request.get_data(as_text=True))
+            recipe["created_by"] = session["user"]
+            mongo.db.recipes.insert_one(recipe)
+            flash("New recipe successfully created")
         
-        ingredients_amount.clear()
-        how_to.clear()
         return render_template("create-recipe.html", recipe=0)
 
     return redirect(url_for("home"))
@@ -202,11 +191,14 @@ def create_recipe():
 # edit recipe
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        recipe = json.loads(request.get_data(as_text=True))
+        recipe["created_by"] = session["user"]
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": recipe})
+        flash("Recipe successfully updated")
+        recipes = mongo.db.recipes.find()
+        return render_template("home.html", recipes=recipes)
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    ingredients_amount.clear()
-    how_to.clear()
-    ingredients_amount.extend(recipe["ingredients_amount"])
-    how_to.extend(recipe["how_to"])
     return render_template("create-recipe.html", recipe=recipe)
 
 

@@ -1,9 +1,12 @@
 $(document).ready(function () {
+    delete_item();
     add_ingredient();
     add_step();
+    onsubmit();
+    onedit();
 });
 
-// TODO: edit global python variables when posting new/edited recipe
+
 
 // Deletes parent of element when trashcan is clicked
 function delete_item() {
@@ -42,4 +45,73 @@ function add_step(){
         delete_item();
         }
     })
+}
+
+function onsubmit(){
+    $("#create_recipe").click(function(){
+        let ingredients_amount = grab_ingredients();
+        let how_to = grab_steps();
+        
+        $.post("/create-recipe", JSON.stringify({
+            "title": $("#title").val(),
+            "time_required": $("#time_required").val(),
+            "ingredients_amount": ingredients_amount,
+            "portions_amount": $("#portions_amount").val(),
+            "food_category": $("#food_category").val(),
+            "how_to": how_to
+        }));
+        
+        alert("Recipe has been successfully created!")
+        // TODO: Change this url when reopening workspace until project has bee ndeployed or it won't work
+        window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes");
+    })
+}
+
+function onedit(){
+    $("#update_recipe").click(function(){
+        let ingredients_amount = grab_ingredients();
+        let how_to = grab_steps();
+        let page = window.location.href;
+        let recipe_id = page.slice(page.lastIndexOf("/"));
+        let url = "/edit_recipe"+recipe_id;
+        
+        $.post(url, JSON.stringify({
+            "title": $("#title").val(),
+            "time_required": $("#time_required").val(),
+            "ingredients_amount": ingredients_amount,
+            "portions_amount": $("#portions_amount").val(),
+            "food_category": $("#food_category").val(),
+            "how_to": how_to
+        }));
+
+        alert("Recipe has been successfully updated!")
+        // TODO: Change this url when reopening workspace until project has bee ndeployed or it won't work
+        window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes"); 
+    })
+}
+
+function grab_ingredients(){
+    let ingredients_list = $("#ingredients_list");
+    let ingredients = ingredients_list.children();
+    let ingredients_amount = [];
+
+    for (let ingredient of ingredients) {
+        ingredients_amount.push(ingredient.innerHTML.replace(
+            '<button class="fas fa-trash-alt float-end text-danger btn"></button>', '').trim());
+    }
+
+    return ingredients_amount;
+}
+
+function grab_steps(){
+    let how_to_list = $("#how_to_list");
+    let steps = how_to_list.children();
+    let how_to = [];
+
+    for (let step of steps) {
+        how_to.push(step.innerHTML.replace(
+            '<button class="fas fa-trash-alt float-end text-danger btn"></button>', '').trim());
+    }
+
+    return how_to;
 }
