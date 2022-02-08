@@ -46,7 +46,7 @@
             {% for i in range(3) %}
                 <div class="col">
                     <div class="card overflow-hidden">
-                        <div class="card-header border-3">
+                        <div class="card-header border-3 p-4">
                             {% if session.user == recipes[i].created_by %}
                                 <a href="{{ url_for('edit_recipe', recipe_id=recipes[i]._id) }}" 
                                 class="fas fa-pen-square fa-2x btn float-end text-info"></a>
@@ -60,7 +60,7 @@
                                 </h6>
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-truncate">
                             <p class="card-text">{{ recipes[i].how_to|join(" - ") }}</p>
                         </div>
                     </div>
