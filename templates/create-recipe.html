@@ -38,7 +38,7 @@ Too Lazy?
             </div>
             <!--food categories-->
             <div class="form-floating m-3">
-                <select class="form-select" id="food_category" name="food_category" type="text">
+                <select class="form-select" id="food_category" name="food_category">
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
@@ -116,12 +116,13 @@ Too Lazy?
             {% if recipe.created_by == session.user %}
                 <button class="btn btn-success btn-lg mb-3" id="update_recipe" type="button" value="Update Recipe">Update Recipe</button>
                 <br>
-                <a class="btn btn-danger btn-sm" type="button" value="Delete Recipe"
-                 data-bs-toggle="modal" data-bs-target="#recipe-warning-modal">Delete Recipe</a>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" 
+                data-bs-target="#recipe-warning-modal">Delete Recipe</button>
             {% else %}
                 <button type="button" class="btn btn-success btn-lg" id="create_recipe" value="Create Recipe">Create Recipe</button>
             {% endif %}
         </div>
+    </form>
 </div>
 <!--modal for making sure the user wants to delete a recipe-->
 <div class="modal" id="recipe-warning-modal" aria-hidden="true">
@@ -137,7 +138,7 @@ Too Lazy?
                 </p>
             </div>
             <div class="modal-footer">
-                <a type="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" 
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" 
                     class="btn btn-danger" id="delete_recipe">Yes, Im sure!</a>
                 <button class="btn btn-info" data-bs-dismiss="modal" aria-label="Close">I changed my mind</button>
             </div>

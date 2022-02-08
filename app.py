@@ -145,8 +145,8 @@ def login():
 
         if existing_user:
             if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
                 # correct passord
-                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for("home"))
             else:
@@ -209,7 +209,7 @@ def create_recipe():
 def edit_recipe(recipe_id):
     if "user" in session:
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        if session["user"] == recipe.created_by:
+        if session["user"] == recipe["created_by"]:
             if request.method == "POST":
                 recipe = json.loads(request.get_data(as_text=True))
                 recipe["created_by"] = session["user"]
