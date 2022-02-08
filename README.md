@@ -217,17 +217,10 @@ In MongoDB the how-to attribute changed from a string to an array. This will als
 ### Testing
 <br>
 
-* to be added later in the project
-
-#### Testing User Stories
-<br>
-
-* to be added later in the project
-
 #### Testing The Code
 <br>
 
-* [link to testing doc](#)
+* [link to testing doc](https://github.com/JuliaByl/the-virtual-food-court/blob/main/documentation/for_readme_pdf/testing-code.pdf)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
