@@ -129,6 +129,7 @@ This has been updated from the original database structure, since I realised the
 * [Bootstrap](https://getbootstrap.com/)
 * [Gitpod](https://gitpod.io/)
 * [Github](https://github.com/)
+* [Google Fonts](https://fonts.google.com/?query=arvo)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -287,6 +288,7 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 * [JSHint](https://jshint.com/)
 * [pep8online](http://pep8online.com/)
 * [WAVE web accesibility evaluation tool](https://wave.webaim.org/)
+* [Google Fonts](https://fonts.google.com/?query=arvo)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

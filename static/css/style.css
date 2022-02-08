@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bebas+Neue&display=swap');
+
+/*fonts*/
+
+body {
+    font-family: Arvo, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .nav {
+    font-family: Bebas Neue, sans-serif;
+}
+
 /* colors */
 header, footer {
     background-color: #007561;
