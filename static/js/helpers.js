@@ -11,7 +11,7 @@ $(document).ready(function () {
 function delete_item() {
     $(".fa-trash-alt").click(function() {
         $(this).parent().remove();
-    })
+    });
 }
 
 // Moves ingredient from input form to ingredient list
@@ -27,7 +27,7 @@ function add_ingredient(){
         $("#ingredients_amount").val("");
         delete_item();
         }
-    })
+    });
 }
 
 // Moves how_to section from input form to how_to list
@@ -43,7 +43,7 @@ function add_step(){
         $("#how_to").val("");
         delete_item();
         }
-    })
+    });
 }
 
 // when the user is clicking the "create-recipe" - button (posts the information to python function)
@@ -64,7 +64,7 @@ function onsubmit(){
         alert("Recipe has been successfully created!");
         // TODO: Change this url when reopening workspace until project has bee ndeployed or it won't work
         window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes");
-    })
+    });
 }
 
 // when the user is clicking the "edit-recipe" - button (posts the information to python function)
@@ -85,17 +85,17 @@ function onedit(){
             "how_to": how_to
         }));
 
-        alert("Recipe has been successfully updated!")
+        alert("Recipe has been successfully updated!");
         // TODO: Change this url when reopening workspace until project has been deployed or it won't work
         window.location.replace("https://8080-juliabyl-thevirtualfoodc-hxrzt10w7ru.ws-eu30.gitpod.io/browse-recipes"); 
-    })
+    });
 }
 
 // displays an alert showing that the recipe has been deleted when clicking the "delete recipe" - button 
 function deletedalert(){
     $("#delete_recipe").click(function(){
-        alert("Recipe has been deleted!")
-    })
+        alert("Recipe has been deleted!");
+    });
 }
 
 // grabs the ingredients listed in the ingredients_list and adds them in a list

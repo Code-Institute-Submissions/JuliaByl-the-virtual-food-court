@@ -1,18 +1,42 @@
 /* colors */
 header, footer {
-    background-color: #FCD0A1;
+    background-color: #007561;
+    color: #FFF7EC;
 }
 
-.card-details {
-    color: #437E25;
+.card-header {
+    background-color: #FFF7EC;
 }
 
 .main-container {
-    background-color: #A1CDFC;
+    background-color: #FFF7EC;
+
 }
 
 .main-container .card {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link, .nav-item, a i {
+    color: #DFE0DF;
+}  
+
+.nav-link:hover, .nav-item:hover a i:hover {
+    color: #FCD0A1;
+} 
+
+.fa-clock, .fa-utensils, h4 {
+    color: #4A2E04;
+}
+
+.btn-info, .page-description .btn:hover {
+    background-color: #8ED5B4;
+    color: #ffff;
+}
+
+.btn-info:hover, .page-description .btn {
+    background-color: #FCD0A1;
+    color: #4A2E04;
 }
 
 /* Headers, footer and main navbars */

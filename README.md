@@ -127,6 +127,8 @@ This has been updated from the original database structure, since I realised the
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 * [MongoDB](https://www.mongodb.com/)
 * [Bootstrap](https://getbootstrap.com/)
+* [Gitpod](https://gitpod.io/)
+* [Github](https://github.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -224,7 +226,7 @@ In MongoDB the how-to attribute changed from a string to an array. This will als
 #### Testing The Code
 <br>
 
-* to be added later in the project
+* [link to testing doc](#)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -271,7 +273,20 @@ Want to browse my other projects on [GitHub](https://github.com/JuliaByl)?
 
 * [Logo from clker-free-vector-images on Pixabay](https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=40295) #
 * [cdnjs](https://cdnjs.com/)
-
+* [Stack Overflow](https://stackoverflow.com/)
+* [W3 Schools](https://www.w3schools.com/)
+* [Geeks for Geeks](https://www.geeksforgeeks.org/)
+* [Flask official documentation](https://flask.palletsprojects.com/en/2.0.x/)
+* [Jinja official documentation](https://jinja.palletsprojects.com/en/3.0.x/)
+* [Python official documentation](https://www.python.org/)
+* [jQuery official documentation](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Code institute mini project](https://github.com/Code-Institute-Solutions/TaskManagerAuth)
+* [W3C markup validation service](https://validator.w3.org/)
+* [W3C CSS validatoion service](https://jigsaw.w3.org/css-validator/)
+* [JSHint](https://jshint.com/)
+* [pep8online](http://pep8online.com/)
+* [WAVE web accesibility evaluation tool](https://wave.webaim.org/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block subheader%} 
+    Oops, something went wrong here!
+{% endblock %}
+
+{% block description %}
+    We can't find what you are looking for. 
+    Go home?
+    <br>
+    <a href="{{ url_for('home') }}" class="btn btn-outline-success">Home</a>
+{% endblock %}
